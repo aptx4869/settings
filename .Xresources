@@ -1,0 +1,107 @@
+! my rxvt setting
+!!感叹号!开头的是注释
+
+!!Rxvt.perl-ext-common:tabbed
+!!使用rxvt自带的标签页，挺丑，我用screen代替了
+
+Rxvt.multichar_encoding:utf-8
+!!字符编码，请根据自己的情况选择utf-8,gbk,big5等等
+
+Rxvt.geometry:192×144
+!!X geometry
+
+Rxvt.transparent:true
+Rxvt.shading:78
+Rxvt.tintColor:lightgray
+!!Rxvt.backgroundPixmap:~/backgrounds/warty-final-ubuntu2.png;0x0+0+0:title
+!!设置伪透明和背景图片，请根据自己的喜好修改。图片格式如下：
+!!Rxvt.backgroundPixmap: file[;geom[:op1][:op2][...]]
+
+!!Rxvt.transparency:255
+!!Rxvt.background:rgba:0000/0000/0000/9999
+!!Rxvt.depth:32
+!!设置成真透明，看得眼花，不好用。可以设置compiz窗口规则来实现
+
+Rxvt.scrollBar:False 
+!!Rxvt.scrollBar_right:True
+!!Rxvt.scrollBar_floating:False
+!!滚动条，我习惯用shift+PgUp/PgDn翻页就禁用了，需要的话设成true
+
+Rxvt.scrollstyle: next
+Rxvt.saveLines:874
+Rxvt.cursorBlink:true
+
+!!配色方案，根据自己的喜好改吧
+!
+Rxvt.foreground:#FFF38A
+Rxvt.background:#363B71
+Rxvt.colorBD:yellow
+Rxvt.colorUL:white
+
+
+Rxvt.color0:#000000000000
+Rxvt.color1:#CDCD00000000
+Rxvt.color2:#0000CDCD0000
+Rxvt.color3:#CDCDCDCD0000
+!Rxvt.color4:#00000000CDCD
+Rxvt.color4:#72729F9FCFCF
+Rxvt.color5:#CDCD0000CDCD
+Rxvt.color6:#0000CDCDCDCD
+Rxvt.color7:#FAFAEBEBD7D7
+Rxvt.color8:#404040404040
+Rxvt.color9:#FFFF00000000
+Rxvt.color10:#0000FFFF0000
+Rxvt.color11:#FFFFFFFF0000
+Rxvt.color12:#FFFFCC030000
+Rxvt.color13:#FFFF0000FFFF
+Rxvt.color14:#0000FFFFFFFF
+Rxvt.color15:#FFFFFFFFFFFF
+
+!!!!Rxvt.color0:#2E2E34343636
+!!!!Rxvt.color1:#CCCC00000000
+!!!!Rxvt.color2:#4E4E9A9A0606
+!!!!Rxvt.color3:#C4C4A0A00000
+!!!!Rxvt.color4:#34346565A4A4
+!!!!Rxvt.color5:#757550507B7B
+!!!!Rxvt.color6:#060698209A9A
+!!!!Rxvt.color7:#D3D3D7D7CFCF
+!!!!Rxvt.color8:#555557575353
+!!!!Rxvt.color9:#EFEF29292929
+!!!!Rxvt.color10:#8A8AE2E23434
+!!!!Rxvt.color11:#FCFCE9E94F4F
+!!!!Rxvt.color12:#72729F9FCFCF
+!!!!Rxvt.color13:#ADAD7F7FA8A8
+!!!!Rxvt.color14:#3434E2E2E2E2
+!!!!Rxvt.color15:#EEEEEEEEECEC
+
+!!Rxvt.color0:black
+!!Rxvt.color1:red
+!!Rxvt.color2:#3a5da3
+!!Rxvt.color3:#4b76cc
+!!Rxvt.color4:RoyalBlue4
+!!Rxvt.color5:magenta
+!!Rxvt.color6:#a1b5dd
+!!Rxvt.color7:#8a95aa
+!!Rxvt.color8:#616668
+!!Rxvt.color9:#075982
+!!Rxvt.color10:#0f82bc
+!!Rxvt.color11:#13a9f4
+!!Rxvt.color12:SkyBlue2
+!!Rxvt.color13:#63c2f2
+!!Rxvt.color14:#6caccc
+!!Rxvt.color15:#dbeff9
+
+!!Rxvt.font:xft:Vera Sans YuanTi Mono :size=22,xft:文泉驿正黑:size=22
+!!Rxvt.font:[codeset=iso8859-1]xft:Vera Sans YuanTi Mono:antialias=false:size=22,xft:WenQuanYi Bitmap song,xft:文泉驿正黑:size=22:antialias=true
+!Rxvt.font:xft:Bitstream Vera Sans Mono:antialias=false:size=22,xft:文泉驿正黑:size=22:antialias=true
+Rxvt.xftAntialias:true
+Rxvt.font:xft:Arial monospaced for SAP:pixelsize=20,antialias=True,xft:文泉驿正黑:pixelsize=24,antialias=True
+
+!Rxvt.font:xft:DejaVu Sans Mono:pixelsize=22,antialias=True,xft:文泉驿正黑:pixelsize=24,antialias=True
+Rxvt.menu:/etc/X11/rxvt.menu
+Rxvt.preeditType:Root
+Rxvt.inputMethod:xim
+URxvt.keysym.Home: \033\[1~
+URxvt.keysym.End: \033\[4~
+URxvt.keysym.Prior: \033\[5~
+URxvt.keysym.Next: \033\[6~

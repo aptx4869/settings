@@ -1,0 +1,33 @@
+"1.0rc1
+
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=bCrsT
+" cset ft=pentadactyl:
+" vim: set ft=vimperator:
+
+
+" vim: set ft=pentadactyl:
+set guioptions+=T
+set mapleader=";"
+
+nmap <F12> <F1>
+nmap <F1> <C-T>
+nmap <F2> gt
+nmap <F3> gT
+nmap <F4> d
+
+" Edit rc file
+cmap <Leader>rc :!gvim $HOME/.pentadactylrc
+
+
+set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
+set previouspattern=\s*上一页|上一张|上一篇|上页|前页|第一页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+set maxitems=6
+command! dict -nargs=* tabopen http://dict.cn/<args>
+map w :dict
+map <silent> W :exe ":dict "+content.getSelection()<CR>
+
+" map <silent> <F2> :js toggle_bar() <CR>
+map <C-w> :js wiki_selected_text() <CR> 
+

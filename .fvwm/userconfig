@@ -1,0 +1,57 @@
+Style screen* TitleAtRight
+Style Conky* NoTitle,Sticky,WindowListSkip
+Style "Navigator.Iceweasel" NoTitle,FocusFollowsMouse,MouseFocus
+
+Style "Navigator.Iceweasel" !UseUSPosition
+#,MaxWindowSize
+Style "Navigator.Iceweasel" PositionPlacement Center
+Style "Navigator.Iceweasel" Maximize
+
+DestroyFunc FuncUrxvt
+AddToFunc FuncUrxvt
++ I ThisWindow (screen*) Maximize True
++ I ThisWindow (tmux*) Maximize True
+
+AddToFunc StartFunction
++ I Module FvwmEvent  
+# start urxvtd server
++ I Exec ~/bin/urxvtstart
+# remove lock on Caps Lock for swapping esc and caps-lock
++ I Exec xmodmap -e "clear lock"
+# run rox-session and set a pretty random wallpaper
++ I Exec exec ~/bin/background
+# goagent YOU KNOW WHY
++ I Exec exec ~/goagent/local/proxy.py
+# droxbox
++ I Exec exec ~/.dropbox-dist/dropboxd
+# pretty conkys
++ I Exec exec ~/bin/conky.sh
+
+DestroyModuleConfig FvwmEvent: *  
+*FvwmEvent: Cmd  
+*FvwmEvent: add_window FuncUrxvt  
+#*FvwmEvent: destroy_window FuncDW  
+#Key p A 4 Exec urxvtc -e screen -R -D
+
+# This is for vim in screen to use Escape key without delay
+# the script ~/bin/sendesc.sh requres xmarco
+# see also my .Xmodmap and .fvwm/esc_twice.txt
+Key Help A N Exec ~/bin/sendesc.sh
+
+#Key semicolon A 4 Exec urxvtc -e screen -R -D
+Key semicolon A 4 Exec urxvtc -e tmux attach-session -d
+Key a A 4 Exec gvim
+Key e A 4 Exec firefox
+Key w A 4 Exec virtualbox --startvm windowsXP
+# Should write some functions to 
+# active \ minimize \run those program
+
+# remove some useless keybindings
+Key equal	A $[Mod1] -
+Key h	A $[Mod1] -
+Key j	A $[Mod1] -
+Key k	A $[Mod1] -
+Key l	A $[Mod1] -
+Mouse 1 A 4 Maximize 
+
+#Mouse 1 A 4 Maximize 
