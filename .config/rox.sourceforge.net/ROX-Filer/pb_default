@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<pinboard>
+  <backdrop style="Fit">/home/bert/pictures/8287854.jpg</backdrop>
+  <icon x="1088" y="192" label="&#x901A;&#x8FBE;&#x4FE1;&#x884C;&#x60C5;" locked="true">/home/bert/.local/share/applications/wine/Programs/&#x946B;&#x7F51;&#x901A;&#x8FBE;&#x4FE1;&#x96C6;&#x6210;&#x7248;/&#x946B;&#x7F51;&#x901A;&#x8FBE;&#x4FE1;&#x884C;&#x60C5;.desktop</icon>
+  <icon x="128" y="384" label="audacious" locked="true">/usr/share/applications/audacious.desktop</icon>
+  <icon x="128" y="192" label="VirtualBox" locked="true">/home/bert/.local/share/applications/VirtualBox.desktop</icon>
+  <icon x="128" y="288" label="qterm" locked="true">/home/bert/.local/share/applications/qterm.desktop</icon>
+  <icon x="128" y="96" label="Firefox" locked="true">/home/bert/.local/share/applications/alacarte-made-3.desktop</icon>
+  <icon x="128" y="480" label="Home" locked="true">/home/bert</icon>
+</pinboard>

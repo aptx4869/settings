@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=安装deb包
+Exec=urxvt -e sudo dpkg -i
+Terminal=false
+Icon=

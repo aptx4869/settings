@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<panel side="Top">
+  <options style="1" width="32" avoid="1" xinerama="0" monitor="0"/>
+  <start>
+    <icon label="" locked="true">~</icon>
+    <icon label="" locked="true">/home/bert/.cache/0install.net/implementations/sha1new=84e37424bbb87a077e25cec87d3c668f12726817</icon>
+    <icon label="">~/.local/share/applications/lockscreen.desktop</icon>
+  </start>
+  <end>
+    <icon label="">/home/bert/usb</icon>
+  </end>
+</panel>

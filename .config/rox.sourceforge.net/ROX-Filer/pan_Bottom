@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<panel side="Bottom">
+  <options style="1" width="28" avoid="1" xinerama="0" monitor="0"/>
+  <start>
+    <icon label="" shortcut="Hyper+1" locked="true">~</icon>
+    <icon label="" shortcut="Hyper+2" locked="true">/windows</icon>
+    <icon label="" shortcut="Hyper+3" locked="true">~/Pictures</icon>
+    <icon label="" shortcut="Hyper+5" locked="true">/srv/</icon>
+    <icon label="" shortcut="Hyper+4" locked="true">~/.local/share/applications/killallxscreensaver.desktop</icon>
+  </start>
+  <end>
+    <icon label="lockscreen.desktop" shortcut="Hyper+equal" locked="true">~/.local/share/applications/lockscreen.desktop</icon>
+    <icon label="easystroke.desktop">/usr/local/share/applications/easystroke.desktop</icon>
+    <icon label="background.desktop" locked="true">/home/aptx4869/.local/share/applications/background.desktop</icon>
+    <icon label="alacarte-made-3.desktop" locked="true">/home/aptx4869/.local/share/applications/alacarte-made-3.desktop</icon>
+    <icon label="dropbox.desktop" locked="true">/home/aptx4869/.local/share/applications/dropbox.desktop</icon>
+  </end>
+</panel>

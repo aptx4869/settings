@@ -1,0 +1,2 @@
+#! /bin/sh
+exec 0launch http://rox.sourceforge.net/2005/interfaces/ROX-Filer ~/.avfs/"$1#"
