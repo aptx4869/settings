@@ -1,7 +1,14 @@
+! Swap the Caps_Lock an Escape for VIM
+! The clear Lock didn't work
+! So I 'manually' clear it in .fvwm/userconfig
 clear Lock
 keycode 9 = Caps_Lock
 keycode 66 = Help
 keycode 146 = Escape
+
+! I use a very strange Dvorak key board 
+! DO NOT use the settings below
+! it will make you crazy
 keycode  24 = semicolon colon semicolon colon dead_ogonek dead_doubleacute dead_ogonek
 keycode  52 = apostrophe quotedbl apostrophe quotedbl dead_acute dead_diaeresis dead_acute
 keycode  10 = equal plus equal plus

@@ -1,11 +1,19 @@
-Style screen* TitleAtRight
-Style Conky* NoTitle,Sticky,WindowListSkip
+Style screen* TitleAtBottom
+#,StartIconic
+Style tmux* TitleAtBottom
+#,StartIconic
+Style Conky* NoTitle,Sticky,WindowListSkip,StaysOnTop,StartIconic
 Style "Navigator.Iceweasel" NoTitle,FocusFollowsMouse,MouseFocus
 
 Style "Navigator.Iceweasel" !UseUSPosition
 #,MaxWindowSize
 Style "Navigator.Iceweasel" PositionPlacement Center
 Style "Navigator.Iceweasel" Maximize
+Style "cairo-dock" Unmanaged
+Style "cairo-dock" HintOverride  
+Style "cairo-dock" NoTitle  
+Style "cairo-dock" StaysOnTop
+Style cairo-dock HandleWidth 0
 
 DestroyFunc FuncUrxvt
 AddToFunc FuncUrxvt
@@ -14,6 +22,7 @@ AddToFunc FuncUrxvt
 
 AddToFunc StartFunction
 + I Module FvwmEvent  
++ I Exec xcompmgr
 # start urxvtd server
 + I Exec ~/bin/urxvtstart
 # remove lock on Caps Lock for swapping esc and caps-lock
@@ -23,10 +32,17 @@ AddToFunc StartFunction
 # goagent YOU KNOW WHY
 + I Exec exec ~/goagent/local/proxy.py
 # droxbox
++ I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
 + I Exec exec ~/.dropbox-dist/dropboxd
 # pretty conkys
 + I Exec exec ~/bin/conky.sh
++ I Exec exec cairo-dock
 
+#+ I Iconify conky
+
+*FvwmAnimate: Delay 0
+#*FvwmAnimate: Effect Random
+#*FvwmAnimate: Width 3
 DestroyModuleConfig FvwmEvent: *  
 *FvwmEvent: Cmd  
 *FvwmEvent: add_window FuncUrxvt  
@@ -37,9 +53,10 @@ DestroyModuleConfig FvwmEvent: *
 # the script ~/bin/sendesc.sh requres xmarco
 # see also my .Xmodmap and .fvwm/esc_twice.txt
 Key Help A N Exec ~/bin/sendesc.sh
-
+Key Escape URxvt N FakeKeypress press Escape press Escape
 #Key semicolon A 4 Exec urxvtc -e screen -R -D
 Key semicolon A 4 Exec urxvtc -e tmux attach-session -d
+Key c A 4 All (Conky) Iconify
 Key a A 4 Exec gvim
 Key e A 4 Exec firefox
 Key w A 4 Exec virtualbox --startvm windowsXP

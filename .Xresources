@@ -12,14 +12,14 @@ Rxvt.geometry:192×144
 
 Rxvt.transparent:true
 Rxvt.shading:78
-Rxvt.tintColor:lightgray
+!Rxvt.tintColor:lightgray
 !!Rxvt.backgroundPixmap:~/backgrounds/warty-final-ubuntu2.png;0x0+0+0:title
 !!设置伪透明和背景图片，请根据自己的喜好修改。图片格式如下：
 !!Rxvt.backgroundPixmap: file[;geom[:op1][:op2][...]]
 
-!!Rxvt.transparency:255
-!!Rxvt.background:rgba:0000/0000/0000/9999
-!!Rxvt.depth:32
+!Rxvt.transparency:248
+!Rxvt.background:rgba:0000/0000/0000/9999
+!Rxvt.depth:32
 !!设置成真透明，看得眼花，不好用。可以设置compiz窗口规则来实现
 
 Rxvt.scrollBar:False 
@@ -34,7 +34,7 @@ Rxvt.cursorBlink:true
 !!配色方案，根据自己的喜好改吧
 !
 Rxvt.foreground:#FFF38A
-Rxvt.background:#363B71
+!Rxvt.background:#363B71
 Rxvt.colorBD:yellow
 Rxvt.colorUL:white
 

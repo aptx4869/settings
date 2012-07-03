@@ -1,0 +1,110 @@
+# maintain spacing between certain elements
+use_spacer right
+
+# set to yes if you want tormo to be forked in the background
+background yes
+
+use_xft yes
+
+# Xft font when Xft is enabled
+#xftfont Vera-8
+#xftfont Andale Mono-8
+#xftfont Clean-8
+#xftfont cubicfive10:pixelsize=8
+#xftfont Sans-Serif:size=9:pixelsize=11
+#xftfont swf!t_v02:pixelsize=11
+#font Microsoft YaHei:size=8
+##xftfont Microsoft YaHei:size=14
+xftfont 文泉驿等宽正黑:size=14
+
+# Text alpha when using Xft
+xftalpha 0.8
+#mail_spool $MAIL
+
+# Update interval in seconds
+update_interval 5.0
+
+# Create own window instead of using desktop (required in nautilus) normal desktop or override
+own_window yes
+own_window_type normal
+own_window_transparent yes
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+#own_window_hints below
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 260 6
+maximum_width 400
+
+own_window_hints undecorated,override,skip_taskbar,skip_pager
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+
+# Minimum size of text area
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no # amplifies text
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+#stippled_borders 3
+stippled_borders 8
+
+# border margins
+#border_margin 5
+border_margin 4
+
+# border widt5
+#border_width 6
+border_width 1
+
+# Default colors and also border colors,
+default_color gold
+default_shade_color black
+default_outline_color DarkGrey
+
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 60
+gap_y 420
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+
+##${voffset 5}${color white}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=CN}
+TEXT
+${voffset -6}${font Weather:size=36}${color #ffa500}I ${voffset -8}${font Anklepants:regular:size=18}${color #5da5d3} Weather Broadcast ${font}
+${voffset 5}${color white} 中国    韶关
+${voffset -5}${color}${hr 1}$color
+${font Weather:size=48}${color white}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=WF}${font}${color}
+${voffset -40}${offset 50}HT ${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=HT}
+${offset 50}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=BR}
+${offset 65}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=WS} ${font Arrows:size=12}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=BF}$font
+${voffset -85}${offset 150}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=DW --startday=1 --endday=2 --spaces=6 --shortweekday}
+${offset 150}${voffset 5}${color white}${font Weather:size=28}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=WF --startday=1 --endday=2 --spaces=3}${font}${color}
+${offset 122}${color white}${font Weather:size=16}i${font}  ${voffset -3}${color gold}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=PC --startday=1 --endday=2 --spaces=5}
+${offset 124}${color white}${font Weather:size=16}v${font}  ${voffset -1}${color gold}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=WS --startday=1 --endday=2 --spaces=3}
+${font Arrows:size=12}${offset 185}${voffset -17}${color gold}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=BF --startday=1 --endday=1 --spaces=0}$font${offset 46}${voffset -3}${font Arrows:size=12}${color gold}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=BF --startday=2 --endday=2 --spaces=0}$font
+${offset 126}${voffset -9}${color white}${font Weather:size=16}z${font}  ${voffset 1}${color gold}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=HT --startday=1 --endday=2 --spaces=4}
+${voffset -28}${color white} ${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=CC}
+${voffset 3} 湿度   ${color}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=HM}
+${voffset 1}${color white} 昼长   ${color}${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=SR} —— ${execi 3600 python ~/conkyrc/conkyForecast.py --location=CHXX0482 --datatype=SS}
+${voffset -5}${color #ffd700}${hr 1}$color
