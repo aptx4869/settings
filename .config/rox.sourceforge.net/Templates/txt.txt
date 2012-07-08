@@ -1,1 +1,1 @@
-../../../Templates/txt.txt
+/home/aptx4869/Templates/Template.txt

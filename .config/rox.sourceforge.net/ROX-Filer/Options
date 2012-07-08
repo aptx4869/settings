@@ -16,7 +16,7 @@
   <Option name="bind_dclick_resizes">1</Option>
   <Option name="display_pipe_colour">#444444</Option>
   <Option name="panel_style">1</Option>
-  <Option name="pinboard_tasklist_per_workspace">0</Option>
+  <Option name="pinboard_tasklist_per_workspace">1</Option>
   <Option name="panel_on_top">1</Option>
   <Option name="toolbar_min_width">0</Option>
   <Option name="panel_avoid">1</Option>
@@ -73,13 +73,13 @@
   <Option name="xattr_show">1</Option>
   <Option name="toolbar_type">1</Option>
   <Option name="action_umount_command">umount</Option>
-  <Option name="pinboard_grid_step">2</Option>
+  <Option name="pinboard_grid_step">16</Option>
   <Option name="session_panel_or_pin">2</Option>
   <Option name="display_door_colour">#ff00ff</Option>
   <Option name="icon_theme">Meliae-Dark</Option>
   <Option name="filer_beep_multi">1</Option>
   <Option name="pinboard_shadow_labels">2</Option>
-  <Option name="label_font">&#x6587;&#x6CC9;&#x9A7F;&#x5FAE;&#x7C73;&#x9ED1; Bold Italic 20</Option>
+  <Option name="label_font">&#x6587;&#x6CC9;&#x9A7F;&#x5FAE;&#x7C73;&#x9ED1; Bold Italic 14</Option>
   <Option name="iconify_dir">1</Option>
   <Option name="pinboard_forward_buttons_13">1</Option>
   <Option name="action_eject_command">eject</Option>

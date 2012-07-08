@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <pinboard>
   <backdrop style="Stretched">/home/aptx4869/Pictures/BACK.jpg</backdrop>
-  <icon x="234" y="202" label="chromium">/home/aptx4869/.local/share/applications/chromium.desktop</icon>
-  <icon x="98" y="100" label="Firefox" locked="true">/home/aptx4869/.local/share/applications/firefox.desktop</icon>
-  <icon x="94" y="638" label="pcmanx" locked="true">/usr/share/applications/pcmanx.desktop</icon>
-  <icon x="96" y="304" label="&#x817E;&#x8BAF;QQ" locked="true">/home/aptx4869/.local/share/applications/&#x817E;&#x8BAF;QQ.desktop</icon>
-  <icon x="92" y="204" label="Home" locked="true">/home/aptx4869</icon>
+  <icon x="256" y="96" label="qterm">/home/aptx4869/.local/share/applications/qterm.desktop</icon>
+  <icon x="96" y="528" label="Stocks" locked="true">/home/aptx4869/.local/share/applications/wine/Programs/&#x946B;&#x7F51;&#x901A;&#x8FBE;&#x4FE1;&#x96C6;&#x6210;&#x7248;/&#x946B;&#x7F51;&#x901A;&#x8FBE;&#x4FE1;&#x884C;&#x60C5;.desktop</icon>
   <icon x="96" y="416" label="Windows XP" locked="true">/home/aptx4869/.local/share/applications/VirtualBox.desktop</icon>
-  <icon x="96" y="528" label="&#x901A;&#x8FBE;&#x4FE1;&#x884C;&#x60C5;" locked="true">/home/aptx4869/.local/share/applications/wine/Programs/&#x946B;&#x7F51;&#x901A;&#x8FBE;&#x4FE1;&#x96C6;&#x6210;&#x7248;/&#x946B;&#x7F51;&#x901A;&#x8FBE;&#x4FE1;&#x884C;&#x60C5;.desktop</icon>
-  <icon x="236" y="98" label="qterm">/home/aptx4869/.local/share/applications/qterm.desktop</icon>
+  <icon x="96" y="208" label="Home" locked="true">/home/aptx4869</icon>
+  <icon x="96" y="304" label="&#x817E;&#x8BAF;QQ" locked="true">/home/aptx4869/.local/share/applications/&#x817E;&#x8BAF;QQ.desktop</icon>
+  <icon x="96" y="640" label="pcmanx" locked="true">/usr/share/applications/pcmanx.desktop</icon>
+  <icon x="96" y="96" label="Firefox" locked="true">/home/aptx4869/.local/share/applications/firefox.desktop</icon>
+  <icon x="256" y="208" label="chromium">/home/aptx4869/.local/share/applications/chromium.desktop</icon>
 </pinboard>

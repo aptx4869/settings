@@ -1,48 +1,62 @@
+SetEnv fvwm_icon $[FVWM_USERDIR]/.icons
 Style screen* TitleAtBottom
 #,StartIconic
 Style tmux* TitleAtBottom
 #,StartIconic
 Style Conky* NoTitle,Sticky,WindowListSkip,StaysOnTop,StartIconic
 Style "Navigator.Iceweasel" NoTitle,FocusFollowsMouse,MouseFocus
+Style "urxvt" Maximize,NoTitle
 
-Style "Navigator.Iceweasel" !UseUSPosition
+#Style "Iceweasel" NoTitle
+Style "Iceweasel" !UseUSPosition
+Style "Iceweasel" TitleAtLeft
 #,MaxWindowSize
-Style "Navigator.Iceweasel" PositionPlacement Center
-Style "Navigator.Iceweasel" Maximize
+Style "Iceweasel" PositionPlacement Center
+Style "Iceweasel" Maximize
 Style "cairo-dock" Unmanaged
-Style "cairo-dock" HintOverride  
-Style "cairo-dock" NoTitle  
-Style "cairo-dock" StaysOnTop
-Style cairo-dock HandleWidth 0
+#Style "cairo-dock" HintOverride  
+#Style "cairo-dock" NoTitle  
+#Style "cairo-dock" StaysOnTop
+#Style cairo-dock HandleWidth 0
 
-DestroyFunc FuncUrxvt
-AddToFunc FuncUrxvt
-+ I ThisWindow (screen*) Maximize True
-+ I ThisWindow (tmux*) Maximize True
 
 AddToFunc StartFunction
 + I Module FvwmEvent  
 + I Exec xcompmgr
 # start urxvtd server
 + I Exec ~/bin/urxvtstart
+# custom keymaps base on dvorak
 # remove lock on Caps Lock for swapping esc and caps-lock
+#+ I Exec xmodmap ~/.Xmodmap
 + I Exec xmodmap -e "clear lock"
 # run rox-session and set a pretty random wallpaper
 + I Exec exec ~/bin/background
 # goagent YOU KNOW WHY
 + I Exec exec ~/goagent/local/proxy.py
 # droxbox
-+ I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
 + I Exec exec ~/.dropbox-dist/dropboxd
+# refresh the wallpaper after running the background change
++ I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
 # pretty conkys
 + I Exec exec ~/bin/conky.sh
-+ I Exec exec cairo-dock
+# use cairo-dock as the dock
+#+ I Exec exec cairo-dock
+# direct assese compress files using avfs
+# should add your self into fuse group and relogin 
+# when the first time
++ I Exec exec mountavfs
++ I Exec exec icedove
 
-#+ I Iconify conky
 
 *FvwmAnimate: Delay 0
 #*FvwmAnimate: Effect Random
 #*FvwmAnimate: Width 3
+
+DestroyFunc FuncUrxvt
+AddToFunc FuncUrxvt
++ I ThisWindow (screen*) Maximize True
++ I ThisWindow (tmux*) Maximize True
+
 DestroyModuleConfig FvwmEvent: *  
 *FvwmEvent: Cmd  
 *FvwmEvent: add_window FuncUrxvt  
@@ -53,14 +67,18 @@ DestroyModuleConfig FvwmEvent: *
 # the script ~/bin/sendesc.sh requres xmarco
 # see also my .Xmodmap and .fvwm/esc_twice.txt
 Key Help A N Exec ~/bin/sendesc.sh
-Key Escape URxvt N FakeKeypress press Escape press Escape
+#Key Help A N FakeKeypress press Escape press Escape
+#Key Help A N FakeKeypress press Escape
+#Key Help A $[Mod1] FakeKeypress press Escape
+
+
 #Key semicolon A 4 Exec urxvtc -e screen -R -D
 Key semicolon A 4 Exec urxvtc -e tmux attach-session -d
 Key c A 4 All (Conky) Iconify
 Key a A 4 Exec gvim
 Key e A 4 Exec firefox
 Key w A 4 Exec virtualbox --startvm windowsXP
-# Should write some functions to 
+#ToDo: Should write some functions to 
 # active \ minimize \run those program
 
 # remove some useless keybindings
@@ -72,3 +90,6 @@ Key l	A $[Mod1] -
 Mouse 1 A 4 Maximize 
 
 #Mouse 1 A 4 Maximize 
+
+MenuStyle * Font "xft:Arial monospaced for SAP:pixelsize=18,antialias=True"
+Test (EnvIsSet FVWM_FLAG_UTF-8) MenuStyle * Font "xft:文泉驿正黑:pixelsize=18,antialias=True:encoding=iso10646-1"

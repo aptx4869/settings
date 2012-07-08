@@ -1,0 +1,12 @@
+#!/bin/sh
+# This file has been generated automatically by fvwm-crystal
+# update-menus method. Do not edit it. Any change will be lost.
+# If you are not happy with the content of this file, override
+# it in one of those locations:
+#  - /home/aptx4869/.fvwm/Applications/debian/应用程序/查看器/~evince~Evince
+#  - /home/aptx4869/.fvwm/Applications/debian/应用程序/查看器/~evince~Evince
+#
+# You can either provide a new content or use a non executable
+# file to discard it.
+
+exec /usr/bin/evince $@
