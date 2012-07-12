@@ -95,9 +95,14 @@ Rxvt.color15:#FFFFFFFFFFFF
 !!Rxvt.font:[codeset=iso8859-1]xft:Vera Sans YuanTi Mono:antialias=false:size=22,xft:WenQuanYi Bitmap song,xft:文泉驿正黑:size=22:antialias=true
 !Rxvt.font:xft:Bitstream Vera Sans Mono:antialias=false:size=22,xft:文泉驿正黑:size=22:antialias=true
 Rxvt.xftAntialias:true
-Rxvt.font:xft:Arial monospaced for SAP:pixelsize=20,antialias=True,xft:文泉驿正黑:pixelsize=24,antialias=True
+Rxvt.font:xft:Arial monospaced for SAP:pixelsize=20,antialias=False,xft:文泉驿正黑:pixelsize=18,antialias=False
 
-!Rxvt.font:xft:DejaVu Sans Mono:pixelsize=22,antialias=True,xft:文泉驿正黑:pixelsize=24,antialias=True
+urxvt.perl-lib:                     /path/to/urxvt-font
+urxvt.keysym.Control-Shift-Up:      perl:font:increment
+urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+urxvt.perl-ext-common:              font
+
+!Rxvt.font:xft:DejaVu Sans Mono:pixelsize=20,antialias=True,xft:文泉驿正黑:pixelsize=24,antialias=True
 Rxvt.menu:/etc/X11/rxvt.menu
 Rxvt.preeditType:Root
 Rxvt.inputMethod:xim

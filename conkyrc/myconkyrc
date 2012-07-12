@@ -185,11 +185,12 @@ show_graph_range no
 ## ${color lightgrey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar}
 TEXT
 ${color lightgrey}已运行:$color $uptime ${color lightgrey}负载:$color $loadavg
-${color lightgrey}CPU负载:${color #cc2222} ${cpu cpu0}% ${cpu cpu1}% ${cpubar cpu 2}${cpubar cpu 1}
+${color lightgrey}CPU负载:${color #cc2222} ${cpu cpu0}% ${cpu cpu2}% ${cpubar cpu 4}${cpubar cpu 6}
 ${color orange}${cpugraph cpu0 0000ff 00ff00}
-${color red}${cpugraph cpu1 0000ff 00ff00}
-${color orange}${cpugraph cpu2 0000ff 00ff00}
-${color red}${cpugraph cpu3 0000ff 00ff00}
+${color red}${cpugraph cpu2 0000ff 00ff00}
+${color orange}${cpugraph cpu4 0000ff 00ff00}
+${color red}${cpugraph cpu6 0000ff 00ff00}
+
 ${color lightgrey}内存使用:$color$mem/$memmax-$memperc%${membar}
 ${color lightgrey}进程数:$color$processes $color$running_processes${color grey}个运行中
 ${color lightgrey}硬盘使用: / $color${fs_used /}/${fs_size /}

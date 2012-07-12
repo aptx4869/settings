@@ -1,4 +1,8 @@
 SetEnv fvwm_icon $[FVWM_USERDIR]/.icons
+
+#使用EdgeScroll命令禁止flipping pages（鼠标不会因为接近屏幕边缘而进入相近的桌面）
+EdgeScroll 0 0 
+
 Style screen* TitleAtBottom
 #,StartIconic
 Style tmux* TitleAtBottom
@@ -11,9 +15,10 @@ Style "urxvt" Maximize,NoTitle
 Style "Iceweasel" !UseUSPosition
 Style "Iceweasel" TitleAtLeft
 #,MaxWindowSize
-Style "Iceweasel" PositionPlacement Center
+Style "Iceweasel" PositionPlacement Center, MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/iceweasel.png
 Style "Iceweasel" Maximize
 Style "cairo-dock" Unmanaged
+Style "Icedove" MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/icedove.png
 #Style "cairo-dock" HintOverride  
 #Style "cairo-dock" NoTitle  
 #Style "cairo-dock" StaysOnTop
@@ -22,7 +27,7 @@ Style "cairo-dock" Unmanaged
 
 AddToFunc StartFunction
 + I Module FvwmEvent  
-+ I Exec xcompmgr
+#+ I Exec xcompmgr
 # start urxvtd server
 + I Exec ~/bin/urxvtstart
 # custom keymaps base on dvorak
@@ -42,10 +47,11 @@ AddToFunc StartFunction
 # use cairo-dock as the dock
 #+ I Exec exec cairo-dock
 # direct assese compress files using avfs
-# should add your self into fuse group and relogin 
+# should add user into fuse group and relogin 
 # when the first time
 + I Exec exec mountavfs
-+ I Exec exec icedove
+#+ I Exec exec icedove
+#+ I Exec exec /home/aptx4869/git/bitcoin/bitcoin-qt
 
 
 *FvwmAnimate: Delay 0
@@ -56,6 +62,7 @@ DestroyFunc FuncUrxvt
 AddToFunc FuncUrxvt
 + I ThisWindow (screen*) Maximize True
 + I ThisWindow (tmux*) Maximize True
++ I ThisWindow (Icedove) MoveToPage 2 0
 
 DestroyModuleConfig FvwmEvent: *  
 *FvwmEvent: Cmd  
@@ -78,6 +85,7 @@ Key c A 4 All (Conky) Iconify
 Key a A 4 Exec gvim
 Key e A 4 Exec firefox
 Key w A 4 Exec virtualbox --startvm windowsXP
+Key b A 4 Exec evince ~/Dropbox/books/Awdwr.pdf
 #ToDo: Should write some functions to 
 # active \ minimize \run those program
 
@@ -89,6 +97,27 @@ Key k	A $[Mod1] -
 Key l	A $[Mod1] -
 Mouse 1 A 4 Maximize 
 
+
+Key equal WI MC Key equal A C WindowId $[w.id] WarpToWindow 50 50
+Key 7 WI MC Key 7 A C WindowId $[w.id] WarpToWindow 50 50
+Key 5 WI MC Key 5 A C WindowId $[w.id] WarpToWindow 50 50
+Key 3 WI MC Key 3 A C WindowId $[w.id] WarpToWindow 50 50
+
+Key equal WI SC State 0
+Key 7 WI SC State 1
+Key 5 WI SC State 2
+Key 3 WI SC State 3
+
+DestroyFunc GroupFunc
+AddToFunc GroupFunc I Layer 1
++ I MoveToPage
++ I Iconify off
++ I Raise
+
+Key equal A 4 All (State 0) GroupFunc
+Key 7 A 4 All (State 1) GroupFunc
+Key 5 A 4 All (State 2) GroupFunc
+Key 3 A 4 All (State 3) GroupFunc
 #Mouse 1 A 4 Maximize 
 
 MenuStyle * Font "xft:Arial monospaced for SAP:pixelsize=18,antialias=True"

@@ -130,7 +130,8 @@ export PS1=$USERCOLOR'\u'${sh_norm}'@'${HOSTCOLOUR}'\h'${sh_norm}' \w\n'${sh_nor
 export CFLAGS='-march=native -O3 -pipe -fomit-frame-pointer'
 export CXXFLAGS=$CFLAGS
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
-figlet '   A P T X  4 8 6 9 ';
+#figlet '   A P T X  4 8 6 9 ';
+linuxlogo -f -u -L random_xy
 fortune-zh
 echo
 # Alias definitions.
@@ -147,4 +148,8 @@ fi
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+fi
+
+if [ -f ~/.rails_completion/rails.bash ] && ! shopt -oq posix; then
+	source ~/.rails_completion/rails.bash
 fi

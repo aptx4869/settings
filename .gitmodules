@@ -1,0 +1,3 @@
+[submodule ".rails_completion"]
+	path = .rails_completion
+	url = git://github.com/jweslley/rails_completion.git

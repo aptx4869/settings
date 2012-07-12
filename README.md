@@ -1,4 +1,4 @@
 settings
 ========
 
-backup some of mine setting files in $HOME directery
+backups of part of my setting files in $HOME directery
