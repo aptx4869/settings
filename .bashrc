@@ -121,11 +121,21 @@ esac
 export PROMPT_COMMAND='if [ $? -ne 0 ]; then ERROR_FLAG=1; else ERROR_FLAG=; fi; '
 
 #
-export PS1=$USERCOLOR'\u'${sh_norm}'@'${HOSTCOLOUR}'\h'${sh_norm}' \w\n'${sh_norm}'${ERROR_FLAG:+'${sh_light_red}'}\$${ERROR_FLAG:+'${sh_norm}'} '
+export PS1=$USERCOLOR'\u'${sh_norm}'@'${HOSTCOLOUR}'\h'${sh_norm}' \w\n$(__git_ps1 "[%s] ")'${sh_norm}'${ERROR_FLAG:+'${sh_light_red}'}\$${ERROR_FLAG:+'${sh_norm}'} '
+#PS1='[W$(__git_ps1 " (%s)")]\$ '
+#export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 #PS1="\n$TITLEBAR$LIGHTGREEN[ $RED$IS_REMOTE$IS_SCREEN$LIGHTGREEN\u@\h ]\n\\\$$NO_COLOUR "
 #export GTK_IM_MODULE=ibus
 #export XMODIFIERS=@im=ibus
 #export QT_IM_MODULE=xim
+
+#export XMODIFIERS="@im=fcitx"
+
+export XMODIFIERS="@im=fcitx"
+export XIM=fcitx
+export XIM_PROGRAM=fcitx
+export QT_IM_MODULE=xim
+export GTK_IM_MODULE=xim
 
 export CFLAGS='-march=native -O3 -pipe -fomit-frame-pointer'
 export CXXFLAGS=$CFLAGS
@@ -153,3 +163,6 @@ fi
 if [ -f ~/.rails_completion/rails.bash ] && ! shopt -oq posix; then
 	source ~/.rails_completion/rails.bash
 fi
+
+bind '"\C-x":"cd ~/workshop/caterpie/ \
+		tmux neww -dk -n testing -t :3 '\''rails s'\'' \\; splitw -dh -p 62 -t :3 autotest \\; splitw -dv -p 38 -t :3 spork\C-m"'

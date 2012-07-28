@@ -97,10 +97,18 @@ Rxvt.color15:#FFFFFFFFFFFF
 Rxvt.xftAntialias:true
 Rxvt.font:xft:Arial monospaced for SAP:pixelsize=20,antialias=False,xft:文泉驿正黑:pixelsize=18,antialias=False
 
-urxvt.perl-lib:                     /path/to/urxvt-font
+!urxvt.perl-lib:                     /path/to/urxvt-font
+urxvt.perl-lib:                     /home/aptx4869/.urxvt/perl
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
 urxvt.keysym.Control-Shift-Down:    perl:font:decrement
-urxvt.perl-ext-common:              font
+urxvt.perl-ext-common:              default,font,font-size,matcher,translate-selection
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+!URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+!URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1
 
 !Rxvt.font:xft:DejaVu Sans Mono:pixelsize=20,antialias=True,xft:文泉驿正黑:pixelsize=24,antialias=True
 Rxvt.menu:/etc/X11/rxvt.menu

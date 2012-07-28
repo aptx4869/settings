@@ -13,12 +13,14 @@ Style "urxvt" Maximize,NoTitle
 
 #Style "Iceweasel" NoTitle
 Style "Iceweasel" !UseUSPosition
-Style "Iceweasel" TitleAtLeft
+
+#Style "Iceweasel" TitleAtLeft
 #,MaxWindowSize
 Style "Iceweasel" PositionPlacement Center, MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/iceweasel.png
 Style "Iceweasel" Maximize
 Style "cairo-dock" Unmanaged
 Style "Icedove" MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/icedove.png
+Style "xmag" NoTitle
 #Style "cairo-dock" HintOverride  
 #Style "cairo-dock" NoTitle  
 #Style "cairo-dock" StaysOnTop
@@ -29,27 +31,30 @@ AddToFunc StartFunction
 + I Module FvwmEvent  
 #+ I Exec xcompmgr
 # start urxvtd server
++ I Exec fcitx
 + I Exec ~/bin/urxvtstart
 # custom keymaps base on dvorak
 # remove lock on Caps Lock for swapping esc and caps-lock
 #+ I Exec xmodmap ~/.Xmodmap
 + I Exec xmodmap -e "clear lock"
-# run rox-session and set a pretty random wallpaper
+# run rox-session and set a random wallpaper
 + I Exec exec ~/bin/background
 # goagent YOU KNOW WHY
-+ I Exec exec ~/goagent/local/proxy.py
++ I Exec exec ~/goagent/local/proxy.py 1> /dev/null 2>&1
 # droxbox
 + I Exec exec ~/.dropbox-dist/dropboxd
 # refresh the wallpaper after running the background change
 + I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
 # pretty conkys
 + I Exec exec ~/bin/conky.sh
++ I Exec exec tmux attach-session -d
 # use cairo-dock as the dock
 #+ I Exec exec cairo-dock
 # direct assese compress files using avfs
 # should add user into fuse group and relogin 
 # when the first time
 + I Exec exec mountavfs
++ I Exec exec clipit
 #+ I Exec exec icedove
 #+ I Exec exec /home/aptx4869/git/bitcoin/bitcoin-qt
 
@@ -86,6 +91,7 @@ Key a A 4 Exec gvim
 Key e A 4 Exec firefox
 Key w A 4 Exec virtualbox --startvm windowsXP
 Key b A 4 Exec evince ~/Dropbox/books/Awdwr.pdf
+Key j A 4 Exec exec python ~/script/mousepos.py
 #ToDo: Should write some functions to 
 # active \ minimize \run those program
 
@@ -119,6 +125,7 @@ Key 7 A 4 All (State 1) GroupFunc
 Key 5 A 4 All (State 2) GroupFunc
 Key 3 A 4 All (State 3) GroupFunc
 #Mouse 1 A 4 Maximize 
+
 
 MenuStyle * Font "xft:Arial monospaced for SAP:pixelsize=18,antialias=True"
 Test (EnvIsSet FVWM_FLAG_UTF-8) MenuStyle * Font "xft:文泉驿正黑:pixelsize=18,antialias=True:encoding=iso10646-1"

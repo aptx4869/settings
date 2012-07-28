@@ -20,9 +20,11 @@ nmap <F4> d
 " Edit rc file
 cmap <Leader>rc :!gvim $HOME/.pentadactylrc
 
+hi Hint font-family: Arial monospaced for SAP; font-size: 14px; font-weight: bold; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
+
 
 set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
-set previouspattern=\s*上一页|上一张|上一篇|上页|前页|第一页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+set previouspattern=\s*上一页|上一张|上一篇|上页|前页|第一页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,/images/d.gif
 set maxitems=6
 command! dict -nargs=* tabopen http://dict.cn/<args>
 map w :dict

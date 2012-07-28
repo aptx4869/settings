@@ -83,7 +83,7 @@ draw_graph_borders yes
 stippled_borders 8
 
 # border margins
-border_margin 4
+#border_margin 4
 
 # border width
 border_width 1
