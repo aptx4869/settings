@@ -35,19 +35,16 @@ AddToFunc StartFunction
 + I Exec ~/bin/urxvtstart
 # custom keymaps base on dvorak
 # remove lock on Caps Lock for swapping esc and caps-lock
-#+ I Exec xmodmap ~/.Xmodmap
++ I Exec xmodmap ~/.Xmodmap
 + I Exec xmodmap -e "clear lock"
 # run rox-session and set a random wallpaper
 + I Exec exec ~/bin/background
 # goagent YOU KNOW WHY
-+ I Exec exec ~/goagent/local/proxy.py 1> /dev/null 2>&1
 # droxbox
-+ I Exec exec ~/.dropbox-dist/dropboxd
 # refresh the wallpaper after running the background change
 + I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
 # pretty conkys
 + I Exec exec ~/bin/conky.sh
-+ I Exec exec tmux attach-session -d
 # use cairo-dock as the dock
 #+ I Exec exec cairo-dock
 # direct assese compress files using avfs
@@ -58,6 +55,18 @@ AddToFunc StartFunction
 #+ I Exec exec icedove
 #+ I Exec exec /home/aptx4869/git/bitcoin/bitcoin-qt
 
+DestroyFunc InitFunction
+AddToFunc InitFunction  
++ I Exec exec tmux attach-session -d
++ I Exec exec ~/.dropbox-dist/dropboxd
++ I Exec exec ~/goagent/local/proxy.py 1> /dev/null 2>&1
+
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
++ I All (clipt) Close
++ I All (fcitx) Close
++ I All (xscreensaver) Close
++ I All (dropboxd) Close
 
 *FvwmAnimate: Delay 0
 #*FvwmAnimate: Effect Random
@@ -125,7 +134,6 @@ Key 7 A 4 All (State 1) GroupFunc
 Key 5 A 4 All (State 2) GroupFunc
 Key 3 A 4 All (State 3) GroupFunc
 #Mouse 1 A 4 Maximize 
-
 
 MenuStyle * Font "xft:Arial monospaced for SAP:pixelsize=18,antialias=True"
 Test (EnvIsSet FVWM_FLAG_UTF-8) MenuStyle * Font "xft:文泉驿正黑:pixelsize=18,antialias=True:encoding=iso10646-1"
