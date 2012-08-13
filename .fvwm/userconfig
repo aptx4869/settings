@@ -21,6 +21,7 @@ Style "Iceweasel" Maximize
 Style "cairo-dock" Unmanaged
 Style "Icedove" MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/icedove.png
 Style "xmag" NoTitle
+Style "Keyboard Status*" NoTitle,StaysOnTop
 #Style "cairo-dock" HintOverride  
 #Style "cairo-dock" NoTitle  
 #Style "cairo-dock" StaysOnTop
@@ -31,18 +32,18 @@ AddToFunc StartFunction
 + I Module FvwmEvent  
 #+ I Exec xcompmgr
 # start urxvtd server
-+ I Exec fcitx
++ I Exec ~/script/fcitx_start.sh
 + I Exec ~/bin/urxvtstart
 # custom keymaps base on dvorak
 # remove lock on Caps Lock for swapping esc and caps-lock
 + I Exec xmodmap ~/.Xmodmap
 + I Exec xmodmap -e "clear lock"
 # run rox-session and set a random wallpaper
-+ I Exec exec ~/bin/background
++ I Exec exec ~/bin/background 2.9
 # goagent YOU KNOW WHY
 # droxbox
 # refresh the wallpaper after running the background change
-+ I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
+#+ I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
 # pretty conkys
 + I Exec exec ~/bin/conky.sh
 # use cairo-dock as the dock
@@ -52,6 +53,7 @@ AddToFunc StartFunction
 # when the first time
 + I Exec exec mountavfs
 + I Exec exec clipit
++ I Exec exec /usr/lib/notification-daemon/notification-daemon
 #+ I Exec exec icedove
 #+ I Exec exec /home/aptx4869/git/bitcoin/bitcoin-qt
 
@@ -63,7 +65,7 @@ AddToFunc InitFunction
 
 DestroyFunc ExitFunction
 AddToFunc ExitFunction
-+ I All (clipt) Close
++ I Exec exec killall clipit
 + I All (fcitx) Close
 + I All (xscreensaver) Close
 + I All (dropboxd) Close
@@ -97,7 +99,7 @@ Key Help A N Exec ~/bin/sendesc.sh
 Key semicolon A 4 Exec urxvtc -e tmux attach-session -d
 Key c A 4 All (Conky) Iconify
 Key a A 4 Exec gvim
-Key e A 4 Exec firefox
+Key e A 4 Exec firefox 1> /dev/null 2>&1
 Key w A 4 Exec virtualbox --startvm windowsXP
 Key b A 4 Exec evince ~/Dropbox/books/Awdwr.pdf
 Key j A 4 Exec exec python ~/script/mousepos.py
@@ -110,6 +112,11 @@ Key h	A $[Mod1] -
 Key j	A $[Mod1] -
 Key k	A $[Mod1] -
 Key l	A $[Mod1] -
+# WTF! they don't use Alt+. in bash ?!
+Key period   A $[Mod1] -
+Key period   A $[Mod1] -
+Key period   A $[Mod1]2 -
+Key period   A $[Mod2]2 -
 Mouse 1 A 4 Maximize 
 
 

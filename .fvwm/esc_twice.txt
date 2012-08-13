@@ -1,4 +1,2 @@
 KeyStrPress Escape
 KeyStrRelease Escape
-KeyStrPress Escape
-KeyStrRelease Escape

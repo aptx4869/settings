@@ -16,6 +16,7 @@ nmap <F1> <C-T>
 nmap <F2> gt
 nmap <F3> gT
 nmap <F4> d
+nmap <C-M> :bmarks<cr>
 
 " Edit rc file
 cmap <Leader>rc :!gvim $HOME/.pentadactylrc

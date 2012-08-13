@@ -53,62 +53,62 @@ Rxvt.cursorBlink:True
 !!cyan #2aa198 6/6 cyan 37 #00afaf 60 -35 -05 42 161 152 175 74 63
 !!green #859900 2/2 green 64 #5f8700 60 -20 65 133 153 0 68 100 60
 
-#define S_base03 #002b36
-#define S_base02 #073642
-#define S_base01 #586e75
-#define S_base00 #657b83
-#define S_base0 #839496
-#define S_base1 #93a1a1
-#define S_base2 #eee8d5
-#define S_base3 #fdf6e3
-#define S_yellow #b58900
-#define S_orange #cb4b16
-#define S_red #dc322f
-#define S_magenta #d33682
-#define S_violet #6c71c4
-#define S_blue #268bd2
-#define S_cyan #2aa198
-#define S_green #859900
+!#define S_base03 #002b36
+!#define S_base02 #073642
+!#define S_base01 #586e75
+!#define S_base00 #657b83
+!#define S_base0 #839496
+!#define S_base1 #93a1a1
+!#define S_base2 #eee8d5
+!#define S_base3 #fdf6e3
+!#define S_yellow #b58900
+!#define S_orange #cb4b16
+!#define S_red #dc322f
+!#define S_magenta #d33682
+!#define S_violet #6c71c4
+!#define S_blue #268bd2
+!#define S_cyan #2aa198
+!#define S_green #859900
 
-*background: S_base03
-*foreground: S_base00
-*fading: 40
-*fadeColor: S_base00
-*cursorColor: S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+!*background: S_base03
+!*foreground: S_base00
+!*fading: 40
+!*fadeColor: S_base00
+!*cursorColor: S_base1
+!*pointerColorBackground:S_base01
+!*pointerColorForeground:S_base1
 
-!! black dark/light
-*color0: S_base02
-*color8: S_base03
+!!! black dark/light
+!*color0: S_base02
+!*color8: S_base03
 
-!! red dark/light
-*color1: S_red
-*color9: S_orange
+!!! red dark/light
+!*color1: S_red
+!*color9: S_orange
 
-!! green dark/light
-*color2: S_green
-*color10: S_base01
+!!! green dark/light
+!*color2: S_green
+!*color10: S_base01
 
-!! yellow dark/light
-*color3: S_yellow
-*color11: S_base00
+!!! yellow dark/light
+!*color3: S_yellow
+!*color11: S_base00
 
-!! blue dark/light
-*color4: S_blue
-*color12: S_base0
+!!! blue dark/light
+!*color4: S_blue
+!*color12: S_base0
 
-!! magenta dark/light
-*color5: S_magenta
-*color13: S_violet
+!!! magenta dark/light
+!*color5: S_magenta
+!*color13: S_violet
 
-!! cyan dark/light
-*color6: S_cyan
-*color14: S_base1
+!!! cyan dark/light
+!*color6: S_cyan
+!*color14: S_base1
 
-!! white dark/light
-*color7: S_base2
-*color15: S_base3
+!!! white dark/light
+!*color7: S_base2
+!*color15: S_base3
 
 !!
 !!配色方案，根据自己的喜好改吧
@@ -182,16 +182,16 @@ Rxvt.font:xft:Arial monospaced for SAP for Powerline:pixelsize=20,antialias=Fals
 urxvt.perl-lib:                     /home/aptx4869/.urxvt/perl
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
 urxvt.keysym.Control-Shift-Down:    perl:font:decrement
-URxvt.keysym.M-e: perl:gt:en-ru   
-URxvt.keysym.M-r: perl:gt:ru-en
+!URxvt.keysym.M-e: perl:gt:en-ru   
+!URxvt.keysym.M-r: perl:gt:ru-en
 URxvt.gt_button.close: 1
 !# Select words and press Alt+e
 
 urxvt.perl-ext-common:              default,font,font-size,matcher 
 !,translate-selection
 
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
+!URxvt.keysym.C-Up:     perl:font-size:increase
+!URxvt.keysym.C-Down:   perl:font-size:decrease
 !URxvt.keysym.C-S-Up:   perl:font-size:incglobal
 !URxvt.keysym.C-S-Down: perl:font-size:decglobal
 URxvt.urlLauncher:      /usr/bin/firefox
@@ -201,7 +201,7 @@ URxvt.matcher.button:   1
 Rxvt.menu:/etc/X11/rxvt.menu
 Rxvt.preeditType:Root
 Rxvt.inputMethod:fcitx
-URxvt.keysym.Home: \033\[1~
-URxvt.keysym.End: \033\[4~
-URxvt.keysym.Prior: \033\[5~
-URxvt.keysym.Next: \033\[6~
+!URxvt.keysym.Home: \033\[1~
+!URxvt.keysym.End: \033\[4~
+!URxvt.keysym.Prior: \033\[5~
+!URxvt.keysym.Next: \033\[6~

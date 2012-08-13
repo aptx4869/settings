@@ -1,0 +1,69 @@
+#!/usr/bin/env python
+#-*-encoding:utf-8-*-
+#-------------------------------------------------
+#     Author: aptx4869 <ling548@gmail.com>
+#     https://github.com/aptx4869
+#  
+#     File: background.py
+#     Create Date: 2012-08-11 07:12:54
+#-------------------------------------------------
+import random, os, time, subprocess, signal, sys
+
+geometry='1680x1050'
+
+# ~/Pictures
+background_img_path = os.environ['HOME'] + '/Pictures'
+
+# ~/Pictures/deskTX_0905_300p
+img_lib_path = background_img_path + '/deskTX_0905_300p'
+
+# background image path
+# ~/Pictures/BACK.jpg
+bg_image = background_img_path + '/BACK.jpg'
+# ~/Pictures/BACK2.jpg
+dark_image = background_img_path + '/BACK2.jpg'
+
+def kill_and_run(prosses_name, prams=''):
+    p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE)
+    out, err = p.communicate()
+    for line in out.splitlines():
+       if prosses_name in line:
+         pid = int(line.split(None, 1)[0])
+         os.kill(pid, signal.SIGTERM)
+    cmd = prosses_name + ' ' + prams
+    subprocess.Popen(args=cmd,  shell=True)
+
+def convert(scr, dst, geometry=geometry):
+    print geometry
+    print scr
+    print dst
+    cmd = 'convert -spread 10 -fill "rgb(0,0,0)" -colorize 70%% -resize "%s" "%s" "%s"' % (geometry, scr, dst)
+    print cmd
+    subprocess.Popen(args=cmd,  shell=True)
+
+def hsetroot(img):
+    kill_and_run('hsetroot', '-fill "%s"' % img)
+
+
+def random_background(wait_time, img_lib_path=img_lib_path, bg_image=bg_image, dark_image=dark_image):
+    for parent, dirnames, filenames in os.walk(img_lib_path): 
+        files = [ fi for fi in filenames if (fi.endswith(".jpg") or fi.endswith(".png") or fi.endswith(".gif")) ]
+        file = random.choice(files)
+        file_full_path = os.path.join(parent, file)
+        print file_full_path
+        os.remove(bg_image)
+        os.remove(dark_image)
+        os.symlink(file_full_path, bg_image)
+        convert(bg_image, dark_image, geometry)
+        kill_and_run('rox', '-S')
+        time.sleep(wait_time)
+        hsetroot(dark_image)
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+    print sys.argv
+    wait_time = float(sys.argv[1]) if len(sys.argv) > 1 else 0.3
+    random_background(wait_time)
+
+
