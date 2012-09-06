@@ -31,7 +31,8 @@ session = /home/aptx4869/Torrents/.session
 # deleted.
 #schedule = watch_directory,5,5,load_start=./watch/*.torrent
 #schedule = untied_directory,5,5,stop_untied=
-schedule = watch_directory,5,5,load_start=/home/aptx4869/Downloads/*.torrent
+##schedule = watch_directory,5,5,load_start=/home/aptx4869/Downloads/*.torrent
+schedule = watch_directory,5,5,load_start=/home/aptx4869/Dropbox/torrent/*.torrent
 schedule = untied_directory,5,5,stop_untied=
 schedule = tied_directory,5,5,start_tied=
 
@@ -80,7 +81,7 @@ encryption = allow_incoming,try_outgoing,enable_retry
 # "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
 # The default is "off". For DHT to work, a session directory must be defined.
 # 
-dht = disable
+dht = auto
 
 # UDP port to use for DHT. 
 # 

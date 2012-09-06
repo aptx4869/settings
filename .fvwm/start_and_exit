@@ -1,0 +1,44 @@
+AddToFunc StartFunction
++ I Module FvwmEvent
++ I Exec exec xcompmgr -cCfF -t-9 -l-9 -r6 -o.65 -D6
++ I Exec exec ~/script/fcitx_start.sh
+# pretty conkys
++ I Exec exec ~/bin/conky.sh
+# use cairo-dock as the dock
++ I Exec exec clipit
++ I Exec exec /usr/lib/notification-daemon/notification-daemon
+# run rox-session and set a random wallpaper
+# refresh the wallpaper after the background change
++ I Exec exec ~/bin/background 2.9
+#+ I Exec exec icedove
+#+ I Exec exec /home/aptx4869/git/bitcoin/bitcoin-qt
+#+ I Schedule 1000 Exec exec cairo-dock -k
+
+DestroyFunc InitFunction
+AddToFunc InitFunction
+# direct assese compress files using avfs
+# should add user into fuse group and relogin
+# when the first time
++ I Exec exec mountavfs
+# start urxvtd server
++ I Exec exec ~/bin/urxvtstart
+# custom keymap base on dvorak
++ I Exec exec xmodmap ~/.Xmodmap
+# remove lock on Caps Lock for swapping esc and caps-lock
++ I Exec exec xmodmap -e "clear lock"
++ I Exec exec tmux attach-session -d
+# droxbox
++ I Exec exec gem server
+# goagent YOU KNOW WHY
++ I Exec exec ~/goagent/local/proxy.py 1> /dev/null 2>&1
++ I Schedule 9000 Exec exec ~/.dropbox-dist/dropboxd
+
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
++ I Exec exec killall clipit
++ I All (fcitx) Close
++ I All (xscreensaver) Close
++ I All (dropboxd) Close
++ I Exec exec killall xcompmgr
++ I Exec exec killall cairo-dock
++ I Exec exec mv ~/.xsession-errors ~/.xsession-errors.bak

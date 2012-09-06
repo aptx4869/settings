@@ -14,8 +14,8 @@ geometry='1680x1050'
 # ~/Pictures
 background_img_path = os.environ['HOME'] + '/Pictures'
 
-# ~/Pictures/deskTX_0905_300p
-img_lib_path = background_img_path + '/deskTX_0905_300p'
+# ~/Pictures/wallpapers
+img_lib_path = background_img_path + '/wallpapers'
 
 # background image path
 # ~/Pictures/BACK.jpg

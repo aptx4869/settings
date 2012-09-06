@@ -1,0 +1,37 @@
+Mouse 1 A 4 Maximize
+Mouse (Iceweasel) 9 A N Maximize
+#Mouse 8 A N Fullscreen
+#Mouse 10 A N Window-Iconify
+#Mouse (some_window_name) 1 A W FakeKeyPress press KeyName
+
+Mouse (rox) 8 A N Window-Rearrange-One-Column -animate
+Mouse (rox) 9 A N Window-Rearrange-Two-Column -animate
+#Mouse 1 A 4 Maximize
+
+#Mouse 1 R  A  cascade
+Mouse 2 R  A  rearrange
+Mouse 3 R  A  WindowList Root c c NoDeskSort, Alphabetic, NoCurrentDeskTitle, MaxLabelWidth 50
+
+
+##桌面双击左键层叠窗口  中键平铺窗口######
+DestroyFunc rearrange
+AddToFunc rearrange
++ I All (CurrentPage,!Fvwm*, !gkrellm, !trayer) WindowShade off
+
++ I Module FvwmRearrange -tile -animate -noresize -mn 2 -m 2p 2p `expr $[vp.width] - 0`p `$[vp.height] -0`p
+
+DestroyFunc cascade
+AddToFunc cascade
++ I All (CurrentPage,!Fvwm*, !gkrellm, !trayer) WindowShade off
++ D Module FvwmRearrange -cascade -animate -resize 1 2 49 45 -incx 8 -incy 6
+
+DestroyFunc Window-Rearrange-One-Column
+AddToFunc Window-Rearrange-One-Column
+#+ I All (CurrentPage,!Fvwm*, !gkrellm, !trayer) WindowShade off
++ I Piperead 'echo Module FvwmRearrange -tile -animate -resize -mn 1 -m $[EWMH-BS-Panel-Left]p $[EWMH-BS-Panel-Top]p `expr $[vp.width] - $[EWMH-BS-Panel-Right]`p `expr $[vp.height] - $[EWMH-BS-Panel-Bottom]`p'
+
+DestroyFunc Window-Rearrange-Two-Column
+AddToFunc Window-Rearrange-Two-Column
+#+ I All (CurrentPage,!Fvwm*, !gkrellm, !trayer) WindowShade off
++ I Piperead 'echo FvwmRearrange -tile -animate -resize -mn 2 -m $[EWMH-BS-Panel-Left]p $[EWMH-BS-Panel-Top]p `expr $[vp.width] - $[EWMH-BS-Panel-Right]`p `expr $[vp.height] - $[EWMH-BS-Panel-Bottom]`p'
+

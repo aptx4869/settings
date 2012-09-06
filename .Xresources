@@ -10,10 +10,12 @@ Rxvt.multichar_encoding:utf-8
 Rxvt.geometry:192×144
 !!X geometry
 
-Rxvt.transparent:true
-Rxvt.shading:78
-!Rxvt.tintColor:lightgray
-!!Rxvt.backgroundPixmap:~/backgrounds/warty-final-ubuntu2.png;0x0+0+0:title
+!Rxvt.transparent:true
+!Rxvt.shading:78
+!Rxvt.tintColor:
+!Rxvt.backgroundPixmap:~/Pictures/BACK2.jpg;1920x1050+0+0:title
+Rxvt.backgroundPixmap: /home/aptx4869/Pictures/BACK2.jpg
+!;1920x1050+0+0
 !!设置伪透明和背景图片，请根据自己的喜好修改。图片格式如下：
 !!Rxvt.backgroundPixmap: file[;geom[:op1][:op2][...]]
 
@@ -22,7 +24,7 @@ Rxvt.shading:78
 !Rxvt.depth:32
 !!设置成真透明，看得眼花，不好用。可以设置compiz窗口规则来实现
 
-Rxvt.scrollBar:False 
+Rxvt.scrollBar:False
 !!Rxvt.scrollBar_right:True
 !!Rxvt.scrollBar_floating:False
 !!滚动条，我习惯用shift+PgUp/PgDn翻页就禁用了，需要的话设成true
@@ -53,30 +55,34 @@ Rxvt.cursorBlink:True
 !!cyan #2aa198 6/6 cyan 37 #00afaf 60 -35 -05 42 161 152 175 74 63
 !!green #859900 2/2 green 64 #5f8700 60 -20 65 133 153 0 68 100 60
 
-!#define S_base03 #002b36
-!#define S_base02 #073642
-!#define S_base01 #586e75
-!#define S_base00 #657b83
-!#define S_base0 #839496
-!#define S_base1 #93a1a1
-!#define S_base2 #eee8d5
-!#define S_base3 #fdf6e3
-!#define S_yellow #b58900
-!#define S_orange #cb4b16
-!#define S_red #dc322f
-!#define S_magenta #d33682
-!#define S_violet #6c71c4
-!#define S_blue #268bd2
-!#define S_cyan #2aa198
-!#define S_green #859900
+#define S_base03 #002b36
+#define S_base02 #073642
+#define S_base01 #586e75
+#define S_base00 #657b83
+#define S_base0 #839496
+#define S_base1 #93a1a1
+#define S_base2 #eee8d5
+#define S_base3 #fdf6e3
+#define S_yellow #b58900
+#define S_orange #cb4b16
+#define S_red #dc322f
+#define S_magenta #d33682
+#define S_violet #6c71c4
+#define S_blue #268bd2
+#define S_cyan #2aa198
+#define S_green #859900
 
 !*background: S_base03
 !*foreground: S_base00
-!*fading: 40
-!*fadeColor: S_base00
-!*cursorColor: S_base1
-!*pointerColorBackground:S_base01
-!*pointerColorForeground:S_base1
+!*background: S_base01
+*background: #E6E5E2
+!*foreground: S_base3
+*foreground: #0F0F0F
+*fading: 40
+*fadeColor: S_base00
+*cursorColor: S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
 
 !!! black dark/light
 !*color0: S_base02
@@ -182,12 +188,12 @@ Rxvt.font:xft:Arial monospaced for SAP for Powerline:pixelsize=20,antialias=Fals
 urxvt.perl-lib:                     /home/aptx4869/.urxvt/perl
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
 urxvt.keysym.Control-Shift-Down:    perl:font:decrement
-!URxvt.keysym.M-e: perl:gt:en-ru   
+!URxvt.keysym.M-e: perl:gt:en-ru
 !URxvt.keysym.M-r: perl:gt:ru-en
 URxvt.gt_button.close: 1
 !# Select words and press Alt+e
 
-urxvt.perl-ext-common:              default,font,font-size,matcher 
+urxvt.perl-ext-common:              default,font,font-size,matcher
 !,translate-selection
 
 !URxvt.keysym.C-Up:     perl:font-size:increase

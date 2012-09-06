@@ -1,1 +1,2 @@
-/home/aptx4869/.local/share/applications/totem.desktop
+#! /bin/sh
+exec  smplayer "$@"

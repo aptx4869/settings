@@ -175,3 +175,5 @@ bind '"\C-x":"cd ~/workshop/caterpie/ \
 	tmux neww -dk -n testing -t :3 '\''rails s'\'' \\; splitw -dh -p 62 -t :3 autotest \\; splitw -dv -p 38 -t :3 spork\C-m"'
 export ROS_PACKAGE_PATH=~/ros:$ROS_PACKAGE_PATH
 eval `dbus-launch --sh-syntax --exit-with-session`
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

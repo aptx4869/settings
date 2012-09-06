@@ -1,3 +1,100 @@
-ls
-ls
-FvwmRearrange -tile
+DestroyFunc FocusAndWarp
+DestroyFunc DeiconfyFocusAndRaise
+AddToFunc DeiconfyFocusAndRaise
++ I Focus
++ I Raise
+Any (Iceweasel) DeiconfyFocusAndRaise
+Any (Iceweasel) DeiconfyFocusAndRaise
+Any (Iceweasel) Focus true
+Pick (Iceweasel) Direction North Maximize True 0 growdown
+Pick (Iceweasel) Direction North 
+all (Iceweasel) Direction North 
+all (Iceweasel) Direction North 
+all (Iceweasel) Direction North 
+all (Pentadactyl) Direction North 
+all (Pentadactyl) Menu
+Any (Iceweasel) Direction North 
+Any (Iceweasel) Menu
+Any (Iceweasel) exec firefox
+Any (hello) exec firefox
+Any (hello) exec firefox
+Any (hello) WarpToWindow 0 0
+Any (hello) WarpToWindow 0 0
+Any (hello) exec WarpToWindow 0 0
+Any (hello) Iconiyf
+Any (Iceweasel) WarpToWindow 0 0
+Any (Iceweasel) WarpToWindow 0 0
+Any (Iceweasel) Iconify
+Any (Iceweasel) Resize
+Any (Iceweasel) FlipFocus
+Any "Iceweasel" FlipFocus
+Any (Iceweasel) FlipFocus
+Any (Iceweasel) Next (AcceptsFocus, CurrentDesk, !Iconic) FlipFocus
+Any (Iceweasel) Next (AcceptsFocus, CurrentDesk, !Iconic) FlipFocus
+Any (Iceweasel) Next (AcceptsFocus, CurrentDesk, !Iconic) FlipFocus
+Any (Iceweasel) Next (AcceptsFocus, CurrentDesk, !Iconic) Focus
+Any (Iceweasel) Next (Iceweasel) Focus
+Any (Iceweasel) Next (Iceweasel) Raise
+Any (Iceweasel) Next (Iceweasel) Iconify
+Any (Iceweasel) Next (Iceweasel) Iconify
+Any (Iceweasel) Next (Iceweasel) Iconify
+Any (Iceweasel) Next (Iceweasel) Iconify
+Any (Iceweasel) Next (Iceweasel) Iconify
+Any (Iceweasel) Next (Iceweasel) Iconify
+Style * DecorateTransient
+Any (Iceweasel) Next (Iceweasel) Iconif
+Any (Iceweasel) Next (Iceweasel) Focuse
+Any (Iceweasel) Next (Iceweasel) Focus
+Any (Iceweasel) Next (Iceweasel) Raise
+Any (Iceweasel) Next (Iceweasel) Raise
+Any (Iceweasel) Next (Iceweasel) Raise
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (hello) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Raise
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) (Iceweasel) Fullscreen
+Any (Iceweasel)  Fullscreen
+Any (Iceweasel)  Fullscreen
+Any (Iceweasel) All (Iceweasel) Fullscreen
+Any (Iceweasel) All (Iceweasel) Fullscreen
+Any (Iceweasel) All (Iceweasel) Fullscreen
+Any (Iceweasel) All (Iceweasel) Fullscreen
+Any (Iceweasel) Next (Iceweasel) Fullscreen
+Any (Iceweasel) All (Iceweasel) Fullscreen
+Any (Iceweasel) All (Iceweasel) WarpToWindow
+Any (Iceweasel) All (Iceweasel) WarpToWindow
+Any (Iceweasel) All (Iceweasel) WarpToWindow
+Any (Iceweasel) Next (Iceweasel) WarpToWindow
+Any (Iceweasel) Next (Iceweasel) WarpToWindow
+Any (Iceweasel) Next (Iceweasel) WarpToWindow
+ThisWindow (xmag) Move 10 10
+Move 10 10
+Move 10p 10p
+Move 10p 20p
+All (xmag) Move 10p 20p
+PipeRead "python ~/script/mousepos.py"
+All (xmag) Move 10p 20p
+reset
+restart
+Restart
+PipeRead -c "python ~/script/mousepos.py"
+PipeRead -c 'python ~/script/mousepos.py'
+PipeRead -c python ~/script/mousepos.py
+PipeRead -c python ~/script/mousepos.py
+PipeRead '~/script/mag.sh'
+PipeRead 'python ~/script/mousepos.py > /tmp/mousepos && cat /tmp/mousepos'
+PipeRead 'python ~/script/mousepos.py > /tmp/mousepos && cat /tmp/mousepos'
+PipeRead 'python ~/script/mousepos.py > /tmp/mousepos && cat /tmp/mousepos'
+ All (xmag) Move 1232 511
+ All (xmag) Move 1232p 511p

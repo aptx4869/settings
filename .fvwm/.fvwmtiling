@@ -1,0 +1,70 @@
+###########################################################
+# Tiling Config File
+###########################################################
+
+# Just push control and then the keypad numbers to make it work, makes things efficient
+# As for the animated movement, I just wanted something completely unnecessary :-P
+
+Key KP_End	W	C	ThisWindow (!Iconic, !Shaded) TileBottomLeftQuarter
+Key KP_Down	W	C	ThisWindow (!Iconic, !Shaded) TileBottomHalf
+Key KP_Next	W	C	ThisWindow (!Iconic, !Shaded) TileBottomRightQuarter
+Key KP_Left	W	C	ThisWindow (!Iconic, !Shaded) TileLeftHalf
+
+Key KP_Begin	W	C	ThisWindow (!Iconic, !Shaded) TileMax
+
+Key KP_Right	W	C	ThisWindow (!Iconic, !Shaded) TileRightHalf
+Key KP_Home	W	C	ThisWindow (!Iconic, !Shaded) TileTopLeftQuarter
+Key KP_Up	W	C	ThisWindow (!Iconic, !Shaded) TileTopHalf
+Key KP_Prior	W	C	ThisWindow (!Iconic, !Shaded) TileTopRightQuarter
+
+DestroyFunc TileBottomLeftQuarter
+AddToFunc TileBottomLeftQuarter
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 50 50
++ I AnimatedMove 0 50 Warp
+
+DestroyFunc TileBottomHalf
+AddToFunc TileBottomHalf
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 100 50
++ I AnimatedMove 5p 595p Warp
+
+DestroyFunc TileBottomRightQuarter
+AddToFunc TileBottomRightQuarter
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 50 50
++ I AnimatedMove 50 50 Warp
+
+DestroyFunc TileLeftHalf
+AddToFunc TileLeftHalf
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 50 100
+
+DestroyFunc TileMax
+AddToFunc TileMax
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 100 100
+
+DestroyFunc TileRightHalf
+AddToFunc TileRightHalf
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 50 100
++ I AnimatedMove 50 65p Warp
+
+
+DestroyFunc TileTopLeftQuarter
+AddToFunc TileTopLeftQuarter
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 50 50
++ I AnimatedMove 0 65p Warp
+
+DestroyFunc TileTopHalf
+AddToFunc TileTopHalf
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 100 50
+
+DestroyFunc TileTopRightQuarter
+AddToFunc TileTopRightQuarter
++ I AnimatedMove 5p 38p Warp
++ I Maximize True 50 50
++ I AnimatedMove 50 65p Warp

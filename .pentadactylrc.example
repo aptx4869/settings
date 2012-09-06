@@ -1,0 +1,164 @@
+" vim: set ft=vim:
+" vim: set foldmarker={,} foldlevel=0 filetype=vim
+"1.0rc1
+" {
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=bCrsT
+" cset ft=pentadactyl:
+" }
+
+
+"1.0b6 (created: 2011/03/09 09:25:18)
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=bCrsT
+
+" vim: set ft=pentadactyl:
+
+"在配置文件内除了注释不能使用半角双引号
+"首先要把危险和影响使用的keymapping拿掉
+map A <Nop>
+map <C-q> <Nop>
+map <C-o> <Nop>
+map <C-i> <Nop>
+map <C-p> <Nop>
+map ZQ <Nop>
+map ZZ <Nop>
+
+" 然后按照个人习惯增加mapping
+map -m n -builtin j 2j
+map -m n -builtin k 2k
+noremap J <C-d>
+noremap K <C-u>
+map -m n h gT
+map -m n l -builtin <C-n>
+map -m n w gT
+map -m n e -builtin <C-n>
+" 跳到第<n>个tab请使用<n>b
+" visual mode下的-builtin <C-n>是新窗口，而hl应用于移动
+noremap H h
+noremap L l
+map < <C-6>
+noremap > g$
+noremap , <C-o>
+noremap . <C-i>
+map U :ju<CR>
+map <C-.> :tabm<CR>
+noremap s <C-c>
+noremap S gf
+noremap <C-n> gb
+noremap <C-N> gB
+noremap \" gn
+noremap = +
+
+" c-a, c-c, c-x, c-v的问题
+" older solutions
+"noremap <C-c> <C-v><C-c>
+"noremap <C-a> <C-v><C-a>
+"cnoremap <C-c> <C-v><C-c>
+"cnoremap <C-v> <C-v><C-v>
+"cnoremap <C-x> <C-v><C-x>
+"inoremap <C-a> <C-v><C-a>
+"inoremap <C-c> <C-v><C-c>
+"inoremap <C-v> <C-v><C-v>
+"inoremap <C-x> <C-v><C-x>
+"inoremap <C-z> <C-v><C-z>
+"inoremap <C-y> <C-v><C-y>
+"noremap <C-y> <C-v><C-y>
+" also use <S-Insert> to paste
+" pass keys
+map -m n,v,i,c <C-a> <Pass>
+map -m n,v,i,c <C-c> <Pass>
+map -m n,v,i,c <C-v> <Pass>
+map -m n,v,i,c <C-x> <Pass>
+map -m n,v,i,c <C-z> <Pass>
+map -m n,v,i,c <C-y> <Pass>
+map -m n,v,i,c <C-k> <Pass>
+map -m n,v,i,c <C-t> <Pass>
+" bookmark
+noremap <C-b> <C-v><C-b>
+
+cnoremap <S-Return> <End>.org<Home><C-Right>www.<CR>
+cnoremap <C-Return> <End>.com<Home><C-Right>www.<CR>
+map -m n,v,i,c,t <S-BS> -builtin <C-z>
+map -m n,v,i,c,t <S-Del> -builtin <A-b>
+map O i0v$yv<Esc>P
+map <leader>s :source ~\\_pentadactylrc<CR>
+cabbrev : !
+
+" courtesy of wanpeng.xxpp.ca
+" map t -js content.getSelection().toString()!=""?dactyl.execute(":tabopen "+ content.getSelection()):CommandExMode().open("tabopen ")
+" my modified version:
+map t -js str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.NEW_TAB}):CommandExMode().open("tabopen ")
+map o -js str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.CURRENT_TAB}):CommandExMode().open("open ")
+
+
+"<leader><price>
+
+map <leader>iask :exe ":tabopen http://v.iask.com/v_play.php?vid="+util.domToString(buffer.focusedFrame.getSelection())<CR>
+map <leader>115 -js str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.execute(":tabopen http://u.115.com/file/"+ str):CommandExMode().open("tabopen http://u.115.com/file/")
+map <leader>bili -js str=util.domToString(buffer.focusedFrame.getSelection()); videoid=str.substr(0,2).toLowerCase()=="av"?str:"av".concat(str); dactyl.execute(":tabopen http://www.bilibili.tv/video/"+videoid)
+map <leader>v -js str=util.domToString(buffer.focusedFrame.getSelection()).toLowerCase(); str.substr(0,2)=="av"?dactyl.execute(":tabopen www.bilibili.tv/video/"+str):str.substr(0,2)=="ac"?dactyl.execute(":tabopen www.acfun.tv/v/"+str):str.substr(0,2)=="sm"?dactyl.execute(":tabopen www.nicovideo.jp/watch/"+str):str.substr(0,6)=="mylist"?dactyl.execute(":tabopen www.bilibili.tv/"+str):dactyl.execute(":tabopen www.bilibili.tv/video/av"+str)
+map <leader>pp :exe ":tabopen http://www.pixiv.net/member_illust.php?mode=medium&illust_id="+util.domToString(buffer.focusedFrame.getSelection())<CR>
+map <leader>pg :exe ":tabopen http://gelbooru.com/index.php?page=post&s=view&id="+util.domToString(buffer.focusedFrame.getSelection())<CR>
+map <leader>ie :js io.run("c:\\program files (x86)\\internet explorer\\iexplore.exe", [buffer.URL])<CR>
+
+autocmd DownloadPost .* -js patt=/^C:\\Users\\Chao\\Documents\\.+(mp3|wma)$/i; if (patt.test(file)) { result=io.system("move /-Y "+file+" c:\\users\\chao\\music\\"+file.substr(24)); if (result.returnValue != 0) dactyl.echo("error while moving "+file) }
+
+set passkeys+=mail.google.com:jk/<CR>,gi
+set titlestring=Mozilla\ Firefox
+set complete=lfbs
+set autocomplete=!.
+
+" Finally, flavors like JavaScript, Ruby and Tcl do not support lookbehind at all, even though they do support lookahead.
+" 所以(?<!^) +http://和(?=[^^ ]) +http://行不通
+"set urlseparator=' {5,}\S+|\n+(?!$)(?!\s)|(\s\S*|^\S+)http://'
+"set urlseparator='\s((?!http://)[\s\S])*http://|((?!http://)\S)+http://|\s{5,}((?!http://)\S)+((?!http://)[\s\S])*$|(\s((?!http://)\S)+((?!http://)[\s\S])*\n|\n((?!http://)[\s\S])*((?!http://)\S)+)((?!http://)[\s\S])*$'
+set urlseparator='\s((?!http://)[\s\S])*(?=(https?|ftp)://)|(((?!http://)\S)*[^u\s]rce:|((?!http://)\S)*[^r\s]ce:|((?!http://)\S)*[^c\s]e:|((?!http://)\S)*[^e\s]:|((?!http://)\S)*[^:\s])(?=(https?|ftp)://)|\s{5,}((?!http://)\S)+((?!http://)[\s\S])*$|(\s((?!http://)\S)+((?!http://)[\s\S])*\n|\n((?!http://)[\s\S])*((?!http://)\S)+)((?!http://)[\s\S])*$'
+
+"(((?!http://)\S)*[^u\s]rce:
+"|((?!http://)\S)*[^r\s]ce:
+"|((?!http://)\S)*[^c\s]e:
+"|((?!http://)\S)*[^e\s]:
+"|((?!http://)\S)*[^:\s]
+")http://
+
+"set hintmatching=contains,transliterated
+
+set editor='C:\\Progra~2\\Notepa~1\\notepad++.exe -multiInst -nosession'
+"set editor='C:\\Program\ Files\ (x86)\\Notepad++\\notepad++.exe -multiInst -nosession'
+
+"tab-options.js config
+"set tabclose=right,previous,opener,left
+"default value
+"set tabopen=link:right,orphan:groupright,external:end
+
+" 齐全的next和previous……需要注意我在 \bnext\b 前加了一个 ^\bnext\b ，因为比如在SciAm网站，经常match到右上角的“What's next”栏目，而不是文章下方的next链接。先match前缀可以解决这个问题。又，suivant和précédent是法语
+set nextpattern='(下|后)一?(页|頁|篇|章|张)|次のページ|次へ','^\bnext\b','\bnext\b','\bsuivant\b','^(>|›)$','^(>>|»)$','^(>|»)','(>|»)$','\bmore\b'
+set previouspattern='(上|前)一?(页|頁|篇|章|张)|前のページ|前へ','^\bprev|previous\b','\bprev|previous\b','\bprécédent\b','^(<|‹)$','^(<<|«)$','^(<|«)','(<|«)$'
+" spaces are not permitted in stringlist
+
+group google -loc www.google.com
+map -m i <Up> <Pass>
+map -m i <Down> <Pass>
+
+"Look up the word you selected in dict.cn在dict.cn中查找所选词的英语
+"command! dict -nargs=* tabopen http://dict.cn/<args>
+"http://xbeta.info/vimperator.htm
+
+" deprecated bash scripts
+" 装了dictd后，用F12轻松查单词，grep是用来去除空行的。<F12>查光标焦点所在的单词，<S-F12>查选中的单词
+"map <F12> ibvey<Esc><Esc>:!dict <C-v>|grep -v ^$<CR>
+"map <S-F12> Y:!dict <C-v>|grep -v ^$<CR>
+" 以下两个没有成功，原因估计是：frcn是 ~/bin 里的脚本，vimperator没读到；vimperator传中文字符“朗道英汉字典”时出问题
+" map <C-F12> Y:!frcn <C-v>|grep -v ^$<CR>
+" map <M-F12> Y:!sdcv -u "朗道英汉字典5.0" <C-v>|fgrep *[<CR>
+
+"控制流量
+command noimg set! permissions.default.image=2
+command ysimg set! permissions.default.image=1
+command nojs set! javascript.enabled=false
+command ysjs set! javascript.enabled=true
+
+cd C:\Users\Chao\Documents

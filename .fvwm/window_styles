@@ -1,0 +1,26 @@
+#Style screen* TitleAtBottom
+#,StartIconic
+#Style tmux* TitleAtBottom
+#,StartIconic
+Style Conky* NoTitle,Sticky,WindowListSkip,StaysOnTop,StartIconic
+Style "Navigator.Iceweasel" NoTitle,FocusFollowsMouse,MouseFocus
+Style "urxvt" NoTitle
+
+#Style "Iceweasel" NoTitle
+Style "Iceweasel" !UseUSPosition
+
+#Style "Iceweasel" TitleAtLeft
+#,MaxWindowSize
+Style "Iceweasel" PositionPlacement Center, MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/iceweasel.png
+#Style "Iceweasel" PositionPlacement Center, MiniIcon /home/aptx4869/Pictures/firefox_logo/Mozilla_Firefox_Icon_Alternate_by_yoitzalvin.png
+#Style "Iceweasel" Maximize
+Style "cairo-dock" Unmanaged
+Style "Icedove" MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/icedove.png
+Style "xmag" NoTitle
+Style "Keyboard Status*" NoTitle,StaysOnTop
+#Style "cairo-dock" HintOverride
+#Style "cairo-dock" NoTitle
+#Style "cairo-dock" StaysOnTop
+#Style cairo-dock HandleWidth 0
+
+#Style "Icedove" StartsOnPage 2 0

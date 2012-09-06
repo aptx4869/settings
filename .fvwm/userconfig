@@ -1,134 +1,46 @@
+# vim:ft=fvwm
 SetEnv fvwm_icon $[FVWM_USERDIR]/.icons
 
 #使用EdgeScroll命令禁止flipping pages（鼠标不会因为接近屏幕边缘而进入相近的桌面）
-EdgeScroll 0 0 
+EdgeScroll 0 0
+#DesktopSize 5x1
 
-Style screen* TitleAtBottom
-#,StartIconic
-Style tmux* TitleAtBottom
-#,StartIconic
-Style Conky* NoTitle,Sticky,WindowListSkip,StaysOnTop,StartIconic
-Style "Navigator.Iceweasel" NoTitle,FocusFollowsMouse,MouseFocus
-Style "urxvt" Maximize,NoTitle
-
-#Style "Iceweasel" NoTitle
-Style "Iceweasel" !UseUSPosition
-
-#Style "Iceweasel" TitleAtLeft
-#,MaxWindowSize
-Style "Iceweasel" PositionPlacement Center, MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/iceweasel.png
-Style "Iceweasel" Maximize
-Style "cairo-dock" Unmanaged
-Style "Icedove" MiniIcon /home/aptx4869/.fvwm/icons/Default/22x22/apps/icedove.png
-Style "xmag" NoTitle
-Style "Keyboard Status*" NoTitle,StaysOnTop
-#Style "cairo-dock" HintOverride  
-#Style "cairo-dock" NoTitle  
-#Style "cairo-dock" StaysOnTop
-#Style cairo-dock HandleWidth 0
+Read start_and_exit
+Read fvwmwindow
+Read window_styles
+Read keybindings
+Read mouse_bindings
+Read .fvwmtiling
 
 
-AddToFunc StartFunction
-+ I Module FvwmEvent  
-#+ I Exec xcompmgr
-# start urxvtd server
-+ I Exec ~/script/fcitx_start.sh
-+ I Exec ~/bin/urxvtstart
-# custom keymaps base on dvorak
-# remove lock on Caps Lock for swapping esc and caps-lock
-+ I Exec xmodmap ~/.Xmodmap
-+ I Exec xmodmap -e "clear lock"
-# run rox-session and set a random wallpaper
-+ I Exec exec ~/bin/background 2.9
-# goagent YOU KNOW WHY
-# droxbox
-# refresh the wallpaper after running the background change
-#+ I Exec exec hsetroot -fill ~/Pictures/BACK2.jpg
-# pretty conkys
-+ I Exec exec ~/bin/conky.sh
-# use cairo-dock as the dock
-#+ I Exec exec cairo-dock
-# direct assese compress files using avfs
-# should add user into fuse group and relogin 
-# when the first time
-+ I Exec exec mountavfs
-+ I Exec exec clipit
-+ I Exec exec /usr/lib/notification-daemon/notification-daemon
-#+ I Exec exec icedove
-#+ I Exec exec /home/aptx4869/git/bitcoin/bitcoin-qt
+DestroyFunc Mixer-Volume-Down
+AddToFunc Mixer-Volume-Down
++ I Exec exec amixer -c 0 set 'Master' $0%- > /dev/null
 
-DestroyFunc InitFunction
-AddToFunc InitFunction  
-+ I Exec exec tmux attach-session -d
-+ I Exec exec ~/.dropbox-dist/dropboxd
-+ I Exec exec ~/goagent/local/proxy.py 1> /dev/null 2>&1
+DestroyFunc Mixer-Volume-Up
+AddToFunc Mixer-Volume-Up
++ I Exec exec amixer -c 0 set 'Master' $0%+ > /dev/null
 
-DestroyFunc ExitFunction
-AddToFunc ExitFunction
-+ I Exec exec killall clipit
-+ I All (fcitx) Close
-+ I All (xscreensaver) Close
-+ I All (dropboxd) Close
+DestroyFunc Mixer-Volume
+AddToFunc Mixer-Volume
++ I Exec exec amixer -c 0 set 'Master' $0 > /dev/null
 
-*FvwmAnimate: Delay 0
-#*FvwmAnimate: Effect Random
-#*FvwmAnimate: Width 3
+DestroyFunc Mixer-Volume-dB
+AddToFunc Mixer-Volume-dB
++ I Exec exec amixer -c 0 -- set 'Master' $0 > /dev/null
 
 DestroyFunc FuncUrxvt
 AddToFunc FuncUrxvt
 + I ThisWindow (screen*) Maximize True
+#+ I ThisWindow (tmux*) Fullscreen
 + I ThisWindow (tmux*) Maximize True
 + I ThisWindow (Icedove) MoveToPage 2 0
++ I ThisWindow (xmag) PipeRead 'cat /tmp/mousepos'
 
-DestroyModuleConfig FvwmEvent: *  
-*FvwmEvent: Cmd  
-*FvwmEvent: add_window FuncUrxvt  
-#*FvwmEvent: destroy_window FuncDW  
-#Key p A 4 Exec urxvtc -e screen -R -D
-
-# This is for vim in screen to use Escape key without delay
-# the script ~/bin/sendesc.sh requres xmarco
-# see also my .Xmodmap and .fvwm/esc_twice.txt
-Key Help A N Exec ~/bin/sendesc.sh
-#Key Help A N FakeKeypress press Escape press Escape
-#Key Help A N FakeKeypress press Escape
-#Key Help A $[Mod1] FakeKeypress press Escape
-
-
-#Key semicolon A 4 Exec urxvtc -e screen -R -D
-Key semicolon A 4 Exec urxvtc -e tmux attach-session -d
-Key c A 4 All (Conky) Iconify
-Key a A 4 Exec gvim
-Key e A 4 Exec firefox 1> /dev/null 2>&1
-Key w A 4 Exec virtualbox --startvm windowsXP
-Key b A 4 Exec evince ~/Dropbox/books/Awdwr.pdf
-Key j A 4 Exec exec python ~/script/mousepos.py
-#ToDo: Should write some functions to 
-# active \ minimize \run those program
-
-# remove some useless keybindings
-Key equal	A $[Mod1] -
-Key h	A $[Mod1] -
-Key j	A $[Mod1] -
-Key k	A $[Mod1] -
-Key l	A $[Mod1] -
-# WTF! they don't use Alt+. in bash ?!
-Key period   A $[Mod1] -
-Key period   A $[Mod1] -
-Key period   A $[Mod1]2 -
-Key period   A $[Mod2]2 -
-Mouse 1 A 4 Maximize 
-
-
-Key equal WI MC Key equal A C WindowId $[w.id] WarpToWindow 50 50
-Key 7 WI MC Key 7 A C WindowId $[w.id] WarpToWindow 50 50
-Key 5 WI MC Key 5 A C WindowId $[w.id] WarpToWindow 50 50
-Key 3 WI MC Key 3 A C WindowId $[w.id] WarpToWindow 50 50
-
-Key equal WI SC State 0
-Key 7 WI SC State 1
-Key 5 WI SC State 2
-Key 3 WI SC State 3
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: Cmd
+*FvwmEvent: add_window FuncUrxvt
+#*FvwmEvent: destroy_window FuncDW
 
 DestroyFunc GroupFunc
 AddToFunc GroupFunc I Layer 1
@@ -136,11 +48,13 @@ AddToFunc GroupFunc I Layer 1
 + I Iconify off
 + I Raise
 
-Key equal A 4 All (State 0) GroupFunc
-Key 7 A 4 All (State 1) GroupFunc
-Key 5 A 4 All (State 2) GroupFunc
-Key 3 A 4 All (State 3) GroupFunc
-#Mouse 1 A 4 Maximize 
+
+DestroyModuleConfig FvwmAnimate: *
+*FvwmAnimate: Effect  frame
+*FvwmAnimate: Delay 2
+*FvwmAnimate: Iterations 150
+*FvwmAnimate: Width 0
+*FvwmAnimate: Color navy
 
 MenuStyle * Font "xft:Arial monospaced for SAP:pixelsize=18,antialias=True"
 Test (EnvIsSet FVWM_FLAG_UTF-8) MenuStyle * Font "xft:文泉驿正黑:pixelsize=18,antialias=True:encoding=iso10646-1"

@@ -24,6 +24,7 @@ keycode  19 = 6 asciicircum 6 asciicircum dead_circumflex dead_circumflex dead_c
 keycode  20 = 8 asterisk 8 asterisk
 keycode  35 = bracketleft braceleft bracketleft braceleft
 !pointer = 1 2 3 4 5 6 7 2 9 8 11 12 13 14 15 16
+pointer = 1 2 3 4 5 6 10 8 9 7
 !remove mod2 = Num_Lock
 !remove mod4 = Super_R
 !add mod2 = Super_R

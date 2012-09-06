@@ -1,15 +1,50 @@
+" vim: set foldmarker={,} foldlevel=0 filetype=vim
 "1.0rc1
-
+" {
 loadplugins '\.(js|penta)$'
 group user
-set guioptions=bCrsT
+set guioptions=bCrsB
 " cset ft=pentadactyl:
-" vim: set ft=vimperator:
+" }
 
 
-" vim: set ft=pentadactyl:
-set guioptions+=T
-set mapleader=";"
+set titlestring=Mozilla\ Firefox
+"set editor='~/script/text_plain'
+set hintkeys=aoeuidhtns
+map , <Leader>
+
+set urlseparator='\s((?!http://)[\s\S])*http://|(((?!http://)\S)*[^u\s]rce:|((?!http://)\S)*[^r\s]ce:|((?!http://)\S)*[^c\s]e:|((?!http://)\S)*[^e\s]:|((?!http://)\S)*[^:\s])http://|\s{5,}((?!http://)\S)+((?!http://)[\s\S])*$|(\s((?!http://)\S)+((?!http://)[\s\S])*\n|\n((?!http://)[\s\S])*((?!http://)\S)+)((?!http://)[\s\S])*$'
+
+
+autocmd DownloadPost .* -js patt=/^\/home\/aptx4869\/Downloads\/.+(torrent)$/i; if (patt.test(file)) { result=io.system("mv '"+file+"' /home/aptx4869/Dropbox/torrent/"+file.substr(24)); if (result.returnValue != 0) dactyl.echo("error while moving "+file+result.returnValue) }
+"set mapleader=";"
+map <leader>v -js str=util.domToString(buffer.focusedFrame.getSelection()).toLowerCase(); str.substr(0,2)=="av"?dactyl.execute(":tabopen www.bilibili.tv/video/"+str):str.substr(0,2)=="ac"?dactyl.execute(":tabopen www.acfun.tv/v/"+str):str.substr(0,2)=="sm"?dactyl.execute(":tabopen www.nicovideo.jp/watch/"+str):str.substr(0,6)=="mylist"?dactyl.execute(":tabopen www.bilibili.tv/"+str):dactyl.execute(":tabopen www.bilibili.tv/video/av"+str)
+
+map -m n -builtin j 2j
+map -m n -builtin k 2k
+map -m n -builtin h 2h
+map -m n -builtin l 2l
+
+nmap -builtin <leader>a :addons<cr>
+nmap -builtin <leader>d :downloads<cr>
+nmap -builtin <leader>r :restart<cr>
+
+nmap -builtin <leader>es :set encoding=Shift_JIS<CR>
+
+nmap -builtin <leader>ec :set encoding=EUC-JP<CR>
+
+nmap -builtin <leader>eu :set encoding=UTF-8<CR>
+
+nmap -builtin <leader>eg :set encoding=GB2312<CR>
+
+nmap -builtin o :!fcitx-remote -c<CR>|o 
+map O i0v$yv<Esc>P
+    "call system("fcitx-remote -c")
+map S :exe ":tabopen "+content.getSelection()<CR>
+
+set hintmatching=custom 
+" pinyin                                                                                            
+set chinesehints=pinyin
 
 nmap <F12> <F1>
 nmap <F1> <C-T>
@@ -24,8 +59,12 @@ cmap <Leader>rc :!gvim $HOME/.pentadactylrc
 hi Hint font-family: Arial monospaced for SAP; font-size: 14px; font-weight: bold; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
 
 
-set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
-set previouspattern=\s*上一页|上一张|上一篇|上页|前页|第一页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,/images/d.gif
+"set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
+"set previouspattern=\s*上一页|上一张|上一篇|上页|前页|第一页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,/images/d.gif
+
+set nextpattern='(下|后)一?(页|頁|篇|章|张)|次のページ|次へ','^\bnext\b','\bnext\b','\bsuivant\b','^(>|›)$','^(>>|»)$','^(>|»)','(>|»)$','\bmore\b'
+set previouspattern='(上|前)一?(页|頁|篇|章|张)|前のページ|前へ','^\bprev|previous\b','\bprev|previous\b','\bprécédent\b','^(<|‹)$','^(<<|«)$','^(<|«)','(<|«)$'
+
 set maxitems=6
 command! dict -nargs=* tabopen http://dict.cn/<args>
 map w :dict

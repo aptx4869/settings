@@ -1,0 +1,79 @@
+#Key p A 4 Exec urxvtc -e screen -R -D
+#
+# This is for vim in screen to use Escape key without delay
+# the script ~/bin/sendesc.sh requres xmarco
+# see also my .Xmodmap and .fvwm/esc_twice.txt
+Key Help A N Exec ~/bin/sendesc.sh
+#Key Help A N FakeKeypress press Escape press Escape
+#Key Help A N FakeKeypress press Escape
+#Key Help A $[Mod1] FakeKeypress press Escape
+
+
+#Key semicolon A 4 Exec urxvtc -e screen -R -D
+Key semicolon A 4 Exec urxvtc -e tmux attach-session -d
+#Key (urxvt) semicolon A 4 --
+Key c A 4 All (Conky) Iconify
+Key a A 4 StartOrWarpTo gvim gvim
+#Key (gvim) a A 4 All (gvim) Window-Shade toggle
+#Key e A 4 Exec firefox 1> /dev/null 2>&1
+Key e A 4 StartOrWarpTo Iceweasel firefox
+Key o A 4 StartOrWarpTo Rox rox
+Key q A 4 StartOrWarpTo Qterm qterm
+Key (urxvt) q A 4 --
+#Key (Iceweasel) e A 4 All (Iceweasel) Window-Shade toggle
+Key comma A 4 StartOrWarpTo gcalctool gcalctool
+
+DestroyFunc StartOrWarpTo
+AddToFunc   StartOrWarpTo
++ I Any ($0,iconic) Next ($0,iconic) Iconify
++ I TestRc (NoMatch) ThisWindow ($0,focused) Iconify
++ I Any ($0,!focused) Next ($0,!focused) WarpToWindow 50 50
++ I TestRc (NoMatch) Exec exec $1 $2 $3
+#+ D Next ($0,focused) Close
+
+#+ I Any ($0,iconic) Next ($0,iconic) Iconify
+Key y A 4 JOE Qterm qterm
+
+DestroyFunc RaiseAndFocus
+AddToFunc RaiseAndFocus
++ I Focus
++ I Raise
+
+DestroyFunc JOE
+AddToFunc JOE
++ I All ($0) RaiseAndFocus
++ I TestRc (NoMatch) Exec exec $1 &
+Key w A 4 Exec virtualbox --startvm windowsXP
+
+Key b A 4 StartOrWarpTo Evince evince ~/Dropbox/books/Awdwr.pdf
+#Key j A 4 Exec exec python ~/script/mousepos.py
+Key j A 4 PipeRead 'python ~/script/mousepos.py > /tmp/mousepos'
+#ToDo: Should write some functions to
+# active \ minimize \run those program
+
+# remove some useless keybindings
+Key equal	A $[Mod1] -
+Key h	A $[Mod1] -
+Key j	A $[Mod1] -
+Key k	A $[Mod1] -
+Key l	A $[Mod1] -
+# WTF! they don't use Alt+. in bash ?!
+Key period   A $[Mod1] -
+Key period   A $[Mod1] -
+Key period   A $[Mod1]2 -
+Key period   A $[Mod2]2 -
+
+Key equal WI MC Key equal A C WindowId $[w.id] WarpToWindow 50 50
+Key 7 WI MC Key 7 A C WindowId $[w.id] WarpToWindow 50 50
+Key 5 WI MC Key 5 A C WindowId $[w.id] WarpToWindow 50 50
+Key 3 WI MC Key 3 A C WindowId $[w.id] WarpToWindow 50 50
+
+Key equal WI SC State 0
+Key 7 WI SC State 1
+Key 5 WI SC State 2
+Key 3 WI SC State 3
+
+Key equal A 4 All (State 0) GroupFunc
+Key 7 A 4 All (State 1) GroupFunc
+Key 5 A 4 All (State 2) GroupFunc
+Key 3 A 4 All (State 3) GroupFunc

@@ -1,0 +1,49 @@
+###########################################################
+# Window Config File
+###########################################################
+
+SetEnv fvwm_images $[FVWM_USERDIR]/images
+Style * HilightColorSet 8, ColorSet 8
+Style * BorderWidth 1, HandleWidth 1
+## no reason to have borders, resizing is just a alt+control+left click away
+#Style * MwmFunctions, MwmDecor, HintOverride
+## necessary maybe, don't really care
+#Style * DecorateTransient, NoPPosition
+## again don't care, just saw it in other configs
+#Style * ResizeOpaque
+## don't get stupid looking lines when resizing
+#Style * TileCascadePlacement
+#windows don't overlap until they have to
+
+# this is the decor that you use, things should be self-explanatory
+DestroyDecor DefaultDecor
+AddToDecor DefaultDecor
++ TitleStyle LeftJustified Height 24
++ TitleStyle InActive ( Colorset 3 -- Flat ) Active ( Colorset 4 -- Flat )
++ AddTitleStyle Active ( TiledPixmap $[fvwm_images]/title.png -- Flat )
++ AddTitleStyle Inactive ( TiledPixmap $[fvwm_images]/inactive_title.png -- Flat )
++ ButtonStyle All InActive ( Colorset 3 -- Flat )
++ ButtonStyle All Active ( Colorset 4 -- Flat )
+
++ AddButtonStyle 1 ActiveUp TiledPixmap $[fvwm_images]/deco/close-active.png -- Flat
++ AddButtonStyle 1 ActiveDown TiledPixmap $[fvwm_images]/deco/close-pressed.png -- Flat
++ AddButtonStyle 8 ActiveUp TiledPixmap $[fvwm_images]/deco/page-left.png -- Flat
++ AddButtonStyle 8 ActiveDown TiledPixmap $[fvwm_images]/deco/page-left.png -- Flat
++ AddButtonStyle 6 ActiveUp TiledPixmap $[fvwm_images]/deco/min-active.png -- Flat
++ AddButtonStyle 6 ActiveDown TiledPixmap $[fvwm_images]/deco/min-pressed.png -- Flat
++ AddButtonStyle 4 ActiveUp TiledPixmap $[fvwm_images]/deco/max-active.png -- Flat
++ AddButtonStyle 4 ActiveDown TiledPixmap $[fvwm_images]/deco/max-pressed.png -- Flat
++ AddButtonStyle 2 ActiveUp TiledPixmap $[fvwm_images]/deco/close-active.png -- Flat
++ AddButtonStyle 2 ActiveDown TiledPixmap $[fvwm_images]/deco/close-pressed.png -- Flat
+
++ AddButtonStyle 1 InActive TiledPixmap $[fvwm_images]/deco/inactive_close-inactive.png -- Flat
++ AddButtonStyle 8 InActive TiledPixmap $[fvwm_images]/deco/inactive_page-left.png -- Flat
++ AddButtonStyle 6 InActive TiledPixmap $[fvwm_images]/deco/inactive_min-inactive.png -- Flat
++ AddButtonStyle 4 InActive TiledPixmap $[fvwm_images]/deco/inactive_max-inactive.png -- Flat
++ AddButtonStyle 2 InActive TiledPixmap $[fvwm_images]/deco/inactive_close-inactive.png -- Flat
+
+Style * UseDecor DefaultDecor
+
+# Engraved shadow effect, just light shadow over dark font offset 1px South :p
+#Style * Font "shadow=1 0 South:xft:Freesans:size=8:minspace=False:antialias=True"
+#---------------------------8<---------------------------------------------------
